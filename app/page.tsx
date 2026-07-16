@@ -8,20 +8,39 @@ import Testimonials from "@/components/Testimonials";
 import WhyUs from "@/components/WhyUs";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
+import Reveal from "@/components/Reveal";
 
 export default function Home() {
   return (
     <div className="flex flex-col flex-1">
       <Hero />
-      <About />
-      <Services />
-      <TechStack />
-      <Process />
-      <FeaturedProjects />
-      <Testimonials />
-      <WhyUs />
-      <FAQ />
-      <Contact />
+      <Reveal>
+        <About />
+      </Reveal>
+      <Reveal>
+        <Services />
+      </Reveal>
+      <Reveal>
+        <TechStack />
+      </Reveal>
+      <Reveal>
+        <Process />
+      </Reveal>
+      <Reveal>
+        <FeaturedProjects />
+      </Reveal>
+      <Reveal>
+        <Testimonials />
+      </Reveal>
+      <Reveal>
+        <WhyUs />
+      </Reveal>
+      <Reveal>
+        <FAQ />
+      </Reveal>
+      <Reveal>
+        <Contact />
+      </Reveal>
     </div>
   );
 }
