@@ -7,6 +7,7 @@ import FeaturedProjects from "@/components/FeaturedProjects";
 import Testimonials from "@/components/Testimonials";
 import WhyUs from "@/components/WhyUs";
 import FAQ from "@/components/FAQ";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Testimonials />
       <WhyUs />
       <FAQ />
+      <Contact />
     </div>
   );
 }

@@ -682,3 +682,51 @@ body {
   color: var(--slate);
   max-width: 38rem;
 }
+
+/* ---------- Contact ---------- */
+
+.contact {
+  padding: 6rem 1.5rem 8rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.25rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.contact-card:hover {
+  border-color: var(--accent-start);
+  transform: translateY(-3px);
+}
+
+.contact-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+.contact-value {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.contact-cv {
+  display: inline-block;
+}
