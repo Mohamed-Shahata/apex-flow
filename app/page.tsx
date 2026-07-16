@@ -4,6 +4,7 @@ import Services from "@/components/Services";
 import TechStack from "@/components/TechStack";
 import Process from "@/components/Process";
 import FeaturedProjects from "@/components/FeaturedProjects";
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <TechStack />
       <Process />
       <FeaturedProjects />
+      <Testimonials />
     </div>
   );
 }
