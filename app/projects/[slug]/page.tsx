@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getProjectBySlug } from "@/lib/actions/projects";
+import { localizeProject } from "@/lib/localize-project";
+import { getLocale } from "next-intl/server";
 import Reveal, { RevealGroup, RevealItem } from "@/components/Reveal";
 
 export const dynamic = "force-dynamic";
@@ -12,15 +14,17 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const study = await getProjectBySlug(slug);
-  if (!study) return {};
+  const raw = await getProjectBySlug(slug);
+  if (!raw) return {};
+  const locale = await getLocale();
+  const study = localizeProject(raw, locale);
 
   return {
-    title: study.titleEn,
-    description: study.overviewEn,
+    title: study.title,
+    description: study.overview,
     openGraph: {
-      title: study.titleEn,
-      description: study.overviewEn,
+      title: study.title,
+      description: study.overview,
       type: "article",
       ...(study.heroImage && { images: [study.heroImage] }),
     },
@@ -33,15 +37,18 @@ export default async function CaseStudyPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const study = await getProjectBySlug(slug);
+  const raw = await getProjectBySlug(slug);
 
-  if (!study) notFound();
+  if (!raw) notFound();
+
+  const locale = await getLocale();
+  const study = localizeProject(raw, locale);
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    name: study.titleEn,
-    description: study.overviewEn,
+    name: study.title,
+    description: study.overview,
     url: `https://apexflow.dev/projects/${study.slug}`,
     creator: {
       "@type": "Person",
@@ -52,19 +59,42 @@ export default async function CaseStudyPage({
     ...(!study.heroImage && study.images.length > 0 && { image: study.images }),
   };
 
+  const t =
+    locale === "ar"
+      ? {
+          overview: "نظرة عامة",
+          demo: "عرض",
+          problem: "المشكلة",
+          solution: "الحل",
+          architecture: "المعمارية",
+          result: "النتيجة",
+          gallery: "معرض الصور",
+          features: "المزايا",
+          role: "الدور",
+          back: "العودة للمشاريع",
+        }
+      : {
+          overview: "Overview",
+          demo: "Demo",
+          problem: "The Problem",
+          solution: "The Solution",
+          architecture: "Architecture",
+          result: "The Result",
+          gallery: "Gallery",
+          features: "Features",
+          role: "Role",
+          back: "Back to projects",
+        };
+
   const storyBlocks = [
-    { key: "problem", heading: "The Problem", text: study.problemEn },
-    { key: "solution", heading: "The Solution", text: study.solutionEn },
-    {
-      key: "architecture",
-      heading: "Architecture",
-      text: study.architectureEn,
-    },
-    { key: "result", heading: "The Result", text: study.resultEn },
+    { key: "problem", heading: t.problem, text: study.problem },
+    { key: "solution", heading: t.solution, text: study.solution },
+    { key: "architecture", heading: t.architecture, text: study.architecture },
+    { key: "result", heading: t.result, text: study.result },
   ];
 
   return (
-    <article className="case">
+    <article className="case" dir={locale === "ar" ? "rtl" : "ltr"}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -76,7 +106,7 @@ export default async function CaseStudyPage({
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={study.heroImage}
-            alt={study.titleEn}
+            alt={study.title}
             className="case-hero-img"
           />
         ) : (
@@ -86,11 +116,11 @@ export default async function CaseStudyPage({
 
         <div className="case-hero-content">
           <Link href="/#projects" className="case-back">
-            &larr; Back to projects
+            &larr; {t.back}
           </Link>
           <Reveal>
-            <h1 className="case-title">{study.titleEn}</h1>
-            <p className="case-summary">{study.summaryEn}</p>
+            <h1 className="case-title">{study.title}</h1>
+            <p className="case-summary">{study.summary}</p>
           </Reveal>
           <RevealGroup className="project-tags" stagger={0.05}>
             {study.stack.map((t) => (
@@ -105,14 +135,14 @@ export default async function CaseStudyPage({
       <div className="case-inner">
         {/* ---------- Overview ---------- */}
         <Reveal className="case-block">
-          <h2>Overview</h2>
-          <p>{study.overviewEn}</p>
+          <h2>{t.overview}</h2>
+          <p>{study.overview}</p>
         </Reveal>
 
         {/* ---------- Video (only if present) ---------- */}
         {study.videoUrl && (
           <Reveal className="case-block case-video-block">
-            <h2>Demo</h2>
+            <h2>{t.demo}</h2>
             {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
             <video
               src={study.videoUrl}
@@ -134,12 +164,12 @@ export default async function CaseStudyPage({
         {/* ---------- Gallery ---------- */}
         {study.images.length > 0 && (
           <Reveal className="case-block">
-            <h2>Gallery</h2>
+            <h2>{t.gallery}</h2>
             <RevealGroup className="case-gallery" stagger={0.08}>
               {study.images.map((src) => (
                 <RevealItem as="div" key={src} className="case-gallery-item">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={src} alt={study.titleEn} />
+                  <img src={src} alt={study.title} />
                 </RevealItem>
               ))}
             </RevealGroup>
@@ -148,9 +178,9 @@ export default async function CaseStudyPage({
 
         {/* ---------- Features ---------- */}
         <Reveal className="case-block">
-          <h2>Features</h2>
+          <h2>{t.features}</h2>
           <ul className="case-list">
-            {study.featuresEn.map((f) => (
+            {study.features.map((f) => (
               <li key={f}>{f}</li>
             ))}
           </ul>
@@ -158,8 +188,8 @@ export default async function CaseStudyPage({
 
         {/* ---------- Role ---------- */}
         <Reveal className="case-block">
-          <h2>Role</h2>
-          <p>{study.roleEn}</p>
+          <h2>{t.role}</h2>
+          <p>{study.role}</p>
         </Reveal>
       </div>
     </article>

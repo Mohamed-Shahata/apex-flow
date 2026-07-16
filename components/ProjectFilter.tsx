@@ -6,11 +6,19 @@ import { RevealGroup, RevealItem } from "./Reveal";
 type Project = {
   slug: string;
   titleEn: string;
+  titleAr: string;
   summaryEn: string;
+  summaryAr: string;
   stack: string[];
 };
 
-export default function ProjectFilter({ projects }: { projects: Project[] }) {
+export default function ProjectFilter({
+  projects,
+  locale,
+}: {
+  projects: Project[];
+  locale: "en" | "ar";
+}) {
   const [active, setActive] = useState<string>("All");
 
   const tags = useMemo(() => {
@@ -51,8 +59,8 @@ export default function ProjectFilter({ projects }: { projects: Project[] }) {
             <a className="project-card" href={`/projects/${p.slug}`}>
               <div className="project-thumb" aria-hidden="true" />
               <div className="project-body">
-                <h3>{p.titleEn}</h3>
-                <p>{p.summaryEn}</p>
+                <h3>{locale === "ar" ? p.titleAr : p.titleEn}</h3>
+                <p>{locale === "ar" ? p.summaryAr : p.summaryEn}</p>
                 <div className="project-tags">
                   {p.stack.map((t) => (
                     <span key={t}>{t}</span>
@@ -65,7 +73,11 @@ export default function ProjectFilter({ projects }: { projects: Project[] }) {
       </RevealGroup>
 
       {filtered.length === 0 && (
-        <p className="project-filter-empty">No projects match this filter.</p>
+        <p className="project-filter-empty">
+          {locale === "ar"
+            ? "لا توجد مشاريع تطابق هذا الفلتر."
+            : "No projects match this filter."}
+        </p>
       )}
     </>
   );
