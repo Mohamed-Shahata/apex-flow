@@ -6,13 +6,15 @@ import Process from "@/components/Process";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import Testimonials from "@/components/Testimonials";
 import WhyUs from "@/components/WhyUs";
-import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Reveal from "@/components/Reveal";
+import dynamic from "next/dynamic";
+
+const FAQ = dynamic(() => import("@/components/FAQ"));
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1">
+    <main id="main" className="flex flex-col flex-1">
       <Hero />
       <Reveal>
         <About />
@@ -41,6 +43,6 @@ export default function Home() {
       <Reveal>
         <Contact />
       </Reveal>
-    </div>
+    </main>
   );
 }

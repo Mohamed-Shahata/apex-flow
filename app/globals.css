@@ -22,6 +22,32 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
+/* ---------- Accessibility ---------- */
+
+.skip-link {
+  position: absolute;
+  top: -3rem;
+  left: 1rem;
+  z-index: 1000;
+  padding: 0.6rem 1rem;
+  background: var(--accent-start);
+  color: #04121f;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  top: 1rem;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent-end);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 /* ---------- Hero ---------- */
 
 .hero {

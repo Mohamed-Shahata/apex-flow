@@ -9,7 +9,7 @@ export default function Hero() {
   const glowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setMounted(true);
+    const raf = requestAnimationFrame(() => setMounted(true));
     const onMove = (e: MouseEvent) => {
       const el = glowRef.current;
       if (!el) return;
@@ -17,7 +17,10 @@ export default function Hero() {
       el.style.setProperty("--y", `${e.clientY}px`);
     };
     window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("mousemove", onMove);
+    };
   }, []);
 
   return (

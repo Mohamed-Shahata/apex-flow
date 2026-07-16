@@ -39,19 +39,28 @@ export default function FAQ() {
         <div className="faq-list">
           {FAQS.map((item, i) => {
             const isOpen = open === i;
+            const answerId = `faq-answer-${i}`;
             return (
               <div className="faq-item" key={item.q}>
                 <button
                   className="faq-question"
                   aria-expanded={isOpen}
+                  aria-controls={answerId}
                   onClick={() => setOpen(isOpen ? null : i)}
                 >
                   <span>{item.q}</span>
-                  <span className={`faq-icon ${isOpen ? "is-open" : ""}`}>
+                  <span
+                    className={`faq-icon ${isOpen ? "is-open" : ""}`}
+                    aria-hidden="true"
+                  >
                     +
                   </span>
                 </button>
-                {isOpen && <p className="faq-answer">{item.a}</p>}
+                {isOpen && (
+                  <p className="faq-answer" id={answerId}>
+                    {item.a}
+                  </p>
+                )}
               </div>
             );
           })}
