@@ -9,6 +9,7 @@ import Navbar from "../components/Navbar";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import VisitTracker from "@/components/VisitTracker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -75,6 +76,7 @@ export default async function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider>
+          <VisitTracker />
           <MouseGlow />
           <a href="#main" className="skip-link">
             Skip to content

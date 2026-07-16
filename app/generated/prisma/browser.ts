@@ -47,3 +47,8 @@ export type Faq = Prisma.FaqModel
  * 
  */
 export type ContactMessage = Prisma.ContactMessageModel
+/**
+ * Model PageVisit
+ * 
+ */
+export type PageVisit = Prisma.PageVisitModel

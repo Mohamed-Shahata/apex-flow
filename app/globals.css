@@ -825,6 +825,62 @@ button:focus-visible {
   font-weight: 700;
 }
 
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+  max-width: 480px;
+}
+
+.admin-stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.25rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.admin-stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.admin-stat-label {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.admin-nav-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--accent-end);
+  color: #05070d;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.admin-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 200;
+  padding: 0.85rem 1.25rem;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  background: rgba(10, 14, 23, 0.95);
+  color: #ededed;
+  font-size: 0.85rem;
+  box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.5);
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

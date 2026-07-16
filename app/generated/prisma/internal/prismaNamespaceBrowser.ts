@@ -56,7 +56,8 @@ export const ModelName = {
   Testimonial: 'Testimonial',
   Service: 'Service',
   Faq: 'Faq',
-  ContactMessage: 'ContactMessage'
+  ContactMessage: 'ContactMessage',
+  PageVisit: 'PageVisit'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -161,6 +162,15 @@ export const ContactMessageScalarFieldEnum = {
 } as const
 
 export type ContactMessageScalarFieldEnum = (typeof ContactMessageScalarFieldEnum)[keyof typeof ContactMessageScalarFieldEnum]
+
+
+export const PageVisitScalarFieldEnum = {
+  id: 'id',
+  path: 'path',
+  createdAt: 'createdAt'
+} as const
+
+export type PageVisitScalarFieldEnum = (typeof PageVisitScalarFieldEnum)[keyof typeof PageVisitScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -1,11 +1,15 @@
 import Link from "next/link";
 import LogoutButton from "@/components/admin/LogoutButton";
+import MessageNotifier from "@/components/admin/MessageNotifier";
+import { getUnreadMessageCount } from "@/lib/actions/analytics";
 
-export default function AdminLayout({
+export default async function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const unread = await getUnreadMessageCount();
+
   return (
     <div className="flex min-h-svh">
       <aside className="flex w-[220px] shrink-0 flex-col gap-8 border-r border-white/10 p-6">
@@ -31,8 +35,12 @@ export default function AdminLayout({
           <Link href="/admin/faq" className="hover:text-foreground">
             FAQ
           </Link>
-          <Link href="/admin/messages" className="hover:text-foreground">
+          <Link
+            href="/admin/messages"
+            className="hover:text-foreground flex items-center gap-2"
+          >
             Messages
+            <MessageNotifier initialCount={unread} />
           </Link>
         </nav>
         <LogoutButton />
