@@ -73,6 +73,41 @@ export default function RootLayout({
           Skip to content
         </a>
 
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://apexflow.dev/#organization",
+                  name: "Apex Flow",
+                  url: "https://apexflow.dev",
+                  logo: "https://apexflow.dev/logo.png",
+                },
+                {
+                  "@type": "Person",
+                  "@id": "https://apexflow.dev/#person",
+                  name: "Mohamed",
+                  jobTitle: "Full-Stack Developer | Backend-Focused",
+                  url: "https://apexflow.dev",
+                  worksFor: { "@id": "https://apexflow.dev/#organization" },
+                  knowsAbout: [
+                    "NestJS",
+                    "Node.js",
+                    "TypeScript",
+                    "PostgreSQL",
+                    "Prisma",
+                    "Next.js",
+                    "React",
+                  ],
+                },
+              ],
+            }),
+          }}
+        />
+
         <LoadingScreen />
         <Navbar />
         {children}

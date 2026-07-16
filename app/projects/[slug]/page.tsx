@@ -35,8 +35,26 @@ export default async function CaseStudyPage({
 
   if (!study) notFound();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: study.title,
+    description: study.overview,
+    url: `https://apexflow.dev/projects/${study.slug}`,
+    creator: {
+      "@type": "Person",
+      name: "Mohamed",
+    },
+    keywords: study.stack.join(", "),
+    ...(study.images.length > 0 && { image: study.images }),
+  };
+
   return (
     <article className="case">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="case-inner">
         <Link href="/#projects" className="case-back">
           &larr; Back to projects
