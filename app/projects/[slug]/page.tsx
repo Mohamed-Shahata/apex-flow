@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getProjectBySlug } from "@/lib/actions/projects";
+import Reveal, { RevealGroup, RevealItem } from "@/components/Reveal";
 
 export const dynamic = "force-dynamic";
 
@@ -21,6 +22,7 @@ export async function generateMetadata({
       title: study.titleEn,
       description: study.overviewEn,
       type: "article",
+      ...(study.heroImage && { images: [study.heroImage] }),
     },
   };
 }
@@ -46,8 +48,20 @@ export default async function CaseStudyPage({
       name: "Mohamed",
     },
     keywords: study.stack.join(", "),
-    ...(study.images.length > 0 && { image: study.images }),
+    ...(study.heroImage && { image: [study.heroImage, ...study.images] }),
+    ...(!study.heroImage && study.images.length > 0 && { image: study.images }),
   };
+
+  const storyBlocks = [
+    { key: "problem", heading: "The Problem", text: study.problemEn },
+    { key: "solution", heading: "The Solution", text: study.solutionEn },
+    {
+      key: "architecture",
+      heading: "Architecture",
+      text: study.architectureEn,
+    },
+    { key: "result", heading: "The Result", text: study.resultEn },
+  ];
 
   return (
     <article className="case">
@@ -55,76 +69,98 @@ export default async function CaseStudyPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="case-inner">
-        <Link href="/#projects" className="case-back">
-          &larr; Back to projects
-        </Link>
 
-        <h1 className="case-title">{study.titleEn}</h1>
-
-        {study.images.length > 0 && (
-          <section className="case-block">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {study.images.map((src) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  key={src}
-                  src={src}
-                  alt={study.titleEn}
-                  className="w-full rounded-2xl border border-white/10"
-                />
-              ))}
-            </div>
-          </section>
+      {/* ---------- Hero ---------- */}
+      <div className="case-hero">
+        {study.heroImage ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={study.heroImage}
+            alt={study.titleEn}
+            className="case-hero-img"
+          />
+        ) : (
+          <div className="case-hero-fallback" aria-hidden="true" />
         )}
+        <div className="case-hero-overlay" />
 
-        <section className="case-block">
+        <div className="case-hero-content">
+          <Link href="/#projects" className="case-back">
+            &larr; Back to projects
+          </Link>
+          <Reveal>
+            <h1 className="case-title">{study.titleEn}</h1>
+            <p className="case-summary">{study.summaryEn}</p>
+          </Reveal>
+          <RevealGroup className="project-tags" stagger={0.05}>
+            {study.stack.map((t) => (
+              <RevealItem as="div" key={t} className="project-tag-pill">
+                {t}
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
+      </div>
+
+      <div className="case-inner">
+        {/* ---------- Overview ---------- */}
+        <Reveal className="case-block">
           <h2>Overview</h2>
           <p>{study.overviewEn}</p>
-        </section>
+        </Reveal>
 
-        <section className="case-block">
-          <h2>Problem</h2>
-          <p>{study.problemEn}</p>
-        </section>
+        {/* ---------- Video (only if present) ---------- */}
+        {study.videoUrl && (
+          <Reveal className="case-block case-video-block">
+            <h2>Demo</h2>
+            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+            <video
+              src={study.videoUrl}
+              controls
+              className="case-video"
+              preload="metadata"
+            />
+          </Reveal>
+        )}
 
-        <section className="case-block">
-          <h2>Solution</h2>
-          <p>{study.solutionEn}</p>
-        </section>
+        {/* ---------- Story: problem -> solution -> architecture -> result ---------- */}
+        {storyBlocks.map((block, i) => (
+          <Reveal key={block.key} className="case-block" delay={i * 60}>
+            <h2>{block.heading}</h2>
+            <p>{block.text}</p>
+          </Reveal>
+        ))}
 
-        <section className="case-block">
-          <h2>Architecture</h2>
-          <p>{study.architectureEn}</p>
-        </section>
+        {/* ---------- Gallery ---------- */}
+        {study.images.length > 0 && (
+          <Reveal className="case-block">
+            <h2>Gallery</h2>
+            <RevealGroup className="case-gallery" stagger={0.08}>
+              {study.images.map((src) => (
+                <RevealItem as="div" key={src} className="case-gallery-item">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={src} alt={study.titleEn} />
+                </RevealItem>
+              ))}
+            </RevealGroup>
+          </Reveal>
+        )}
 
-        <section className="case-block">
+        {/* ---------- Features ---------- */}
+        <Reveal className="case-block">
           <h2>Features</h2>
           <ul className="case-list">
             {study.featuresEn.map((f) => (
               <li key={f}>{f}</li>
             ))}
           </ul>
-        </section>
+        </Reveal>
 
-        <section className="case-block">
-          <h2>Tech Stack</h2>
-          <div className="project-tags">
-            {study.stack.map((t) => (
-              <span key={t}>{t}</span>
-            ))}
-          </div>
-        </section>
-
-        <section className="case-block">
+        {/* ---------- Role ---------- */}
+        <Reveal className="case-block">
           <h2>Role</h2>
           <p>{study.roleEn}</p>
-        </section>
-
-        <section className="case-block">
-          <h2>Result</h2>
-          <p>{study.resultEn}</p>
-        </section>
+        </Reveal>
       </div>
     </article>
   );
