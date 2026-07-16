@@ -94,7 +94,88 @@ const projects = [
   },
 ];
 
+const testimonials = [
+  {
+    quote: "Add a real client or collaborator quote here.",
+    name: "Client Name",
+    role: "Role, Company",
+    order: 1,
+  },
+  {
+    quote: "Add a second quote here — GitHub feedback, a recommendation, etc.",
+    name: "Name",
+    role: "Role, Company",
+    order: 2,
+  },
+  {
+    quote: "Add a third quote here.",
+    name: "Name",
+    role: "Role, Company",
+    order: 3,
+  },
+];
+
+const services = [
+  {
+    title: "Web Development",
+    items: ["Landing Pages", "SaaS Platforms", "Dashboards"],
+    order: 1,
+  },
+  {
+    title: "Backend Systems",
+    items: ["APIs", "CRM / ERP", "Multi-Tenant Architecture"],
+    order: 2,
+  },
+  {
+    title: "Platform Engineering",
+    items: ["Authentication", "Payments", "Admin Panels"],
+    order: 3,
+  },
+  {
+    title: "AI Integration",
+    items: ["LLM Features", "Automation Pipelines", "AI Assistants"],
+    order: 4,
+  },
+];
+
+const faqs = [
+  {
+    question: "What's the typical timeline for a project?",
+    answer:
+      "Depends on scope — a landing page can ship in about a week, while a full SaaS platform with multi-tenant auth usually runs 4–8 weeks. You get a concrete estimate after the discovery phase, not before.",
+    order: 1,
+  },
+  {
+    question: "Do you work with existing codebases, or only greenfield builds?",
+    answer:
+      "Both. Joining an existing NestJS/Next.js/Prisma codebase to extend or fix it is common work, not an exception.",
+    order: 2,
+  },
+  {
+    question: "How is communication handled during a project?",
+    answer:
+      "Direct — you talk to the person writing the code, with regular, specific updates instead of vague status pings.",
+    order: 3,
+  },
+  {
+    question: "What happens after launch?",
+    answer:
+      "Support continues post-deploy: bug fixes, monitoring, and iteration as real usage surfaces new needs.",
+    order: 4,
+  },
+  {
+    question: "Can you handle both backend and frontend?",
+    answer:
+      "Yes — backend is the core focus, but the same person can own the Next.js frontend so nothing is lost in handoff.",
+    order: 5,
+  },
+];
+
 async function main() {
+  console.log("Seed started");
+
+  console.log("Projects before:", await prisma.project.count());
+
   for (const project of projects) {
     await prisma.project.upsert({
       where: { slug: project.slug },
@@ -102,6 +183,22 @@ async function main() {
       create: project,
     });
   }
+
+  console.log("Projects after:", await prisma.project.count());
+
+  console.log("Testimonials before:", await prisma.testimonial.count());
+
+  if ((await prisma.testimonial.count()) === 0) {
+    console.log("Creating testimonials...");
+    await prisma.testimonial.createMany({ data: testimonials });
+  }
+
+  console.log("Testimonials after:", await prisma.testimonial.count());
+
+  console.log("Services:", await prisma.service.count());
+  console.log("FAQs:", await prisma.faq.count());
+
+  console.log("Seed finished");
 }
 
 main()

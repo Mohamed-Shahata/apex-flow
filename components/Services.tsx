@@ -1,23 +1,8 @@
-const SERVICES = [
-  {
-    title: "Web Development",
-    items: ["Landing Pages", "SaaS Platforms", "Dashboards"],
-  },
-  {
-    title: "Backend Systems",
-    items: ["APIs", "CRM / ERP", "Multi-Tenant Architecture"],
-  },
-  {
-    title: "Platform Engineering",
-    items: ["Authentication", "Payments", "Admin Panels"],
-  },
-  {
-    title: "AI Integration",
-    items: ["LLM Features", "Automation Pipelines", "AI Assistants"],
-  },
-];
+import { getServices } from "@/lib/actions/services";
 
-export default function Services() {
+export default async function Services() {
+  const SERVICES = await getServices();
+
   return (
     <section className="services" id="services">
       <div className="services-inner">
@@ -30,7 +15,7 @@ export default function Services() {
 
         <div className="services-grid">
           {SERVICES.map((s) => (
-            <div className="service-card" key={s.title}>
+            <div className="service-card" key={s.id}>
               <h3>{s.title}</h3>
               <ul>
                 {s.items.map((item) => (

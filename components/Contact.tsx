@@ -1,4 +1,6 @@
 // Replace href values with real contact links/handles.
+import ContactForm from "@/components/ContactForm";
+
 const CHANNELS = [
   {
     label: "Email",
@@ -50,6 +52,8 @@ export default function Contact() {
         <a className="btn btn-primary contact-cv" href="/cv.pdf" download>
           Download CV
         </a>
+
+        <ContactForm />
       </div>
     </section>
   );

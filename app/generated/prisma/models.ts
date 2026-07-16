@@ -9,4 +9,8 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/Project'
+export type * from './models/Testimonial'
+export type * from './models/Service'
+export type * from './models/Faq'
+export type * from './models/ContactMessage'
 export type * from './commonInputTypes'

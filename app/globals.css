@@ -230,6 +230,60 @@ button:focus-visible {
   gap: 0.5rem !important;
 }
 
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 480px;
+  margin-top: 2rem;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.5rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+  color: inherit;
+  font: inherit;
+}
+
+.contact-success {
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
+.admin-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-message {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.admin-message.is-unread {
+  border-color: #2563eb;
+}
+
+.admin-message-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
 .admin-page p {
   color: var(--slate);
   max-width: 34rem;
