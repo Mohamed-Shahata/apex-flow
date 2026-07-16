@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import {
   SingleImageUploader,
   MultiImageUploader,
@@ -32,6 +35,15 @@ type Project = {
   order: number;
 };
 
+const TABS = [
+  { id: "basic", label: "Basic" },
+  { id: "en", label: "English" },
+  { id: "ar", label: "عربي" },
+  { id: "media", label: "Media" },
+] as const;
+
+type TabId = (typeof TABS)[number]["id"];
+
 export default function ProjectForm({
   action,
   project,
@@ -39,192 +51,215 @@ export default function ProjectForm({
   action: (formData: FormData) => void;
   project?: Project;
 }) {
+  const [tab, setTab] = useState<TabId>("basic");
+
   return (
-    <form action={action} className="admin-form">
-      <label>
-        Slug
-        <input name="slug" defaultValue={project?.slug} required />
-      </label>
+    <form action={action} className="project-form">
+      <div className="project-form-tabs" role="tablist">
+        {TABS.map((t) => (
+          <button
+            key={t.id}
+            type="button"
+            role="tab"
+            aria-selected={tab === t.id}
+            className={`project-form-tab${tab === t.id ? " active" : ""}`}
+            onClick={() => setTab(t.id)}
+          >
+            {t.label}
+          </button>
+        ))}
+      </div>
 
-      <h3>English</h3>
-      <label>
-        Title (EN)
-        <input name="titleEn" defaultValue={project?.titleEn} required />
-      </label>
-      <label>
-        Summary (EN)
-        <textarea name="summaryEn" defaultValue={project?.summaryEn} required />
-      </label>
-      <label>
-        Overview (EN)
-        <textarea
-          name="overviewEn"
-          defaultValue={project?.overviewEn}
-          required
-        />
-      </label>
-      <label>
-        Problem (EN)
-        <textarea name="problemEn" defaultValue={project?.problemEn} required />
-      </label>
-      <label>
-        Solution (EN)
-        <textarea
-          name="solutionEn"
-          defaultValue={project?.solutionEn}
-          required
-        />
-      </label>
-      <label>
-        Architecture (EN)
-        <textarea
-          name="architectureEn"
-          defaultValue={project?.architectureEn}
-          required
-        />
-      </label>
-      <label>
-        Features EN (one per line)
-        <textarea
-          name="featuresEn"
-          defaultValue={project?.featuresEn?.join("\n")}
-          rows={5}
-        />
-      </label>
-      <label>
-        Role (EN)
-        <textarea name="roleEn" defaultValue={project?.roleEn} required />
-      </label>
-      <label>
-        Result (EN)
-        <textarea name="resultEn" defaultValue={project?.resultEn} required />
-      </label>
+      {/* ---------- Basic ---------- */}
+      <section className="project-form-panel glass" hidden={tab !== "basic"}>
+        <label>
+          Slug
+          <input name="slug" defaultValue={project?.slug} required />
+        </label>
+        <label>
+          Tech Stack (one per line)
+          <textarea
+            name="stack"
+            defaultValue={project?.stack?.join("\n")}
+            rows={4}
+          />
+        </label>
+        <div className="project-form-row">
+          <label>
+            Order
+            <input
+              type="number"
+              name="order"
+              defaultValue={project?.order ?? 0}
+            />
+          </label>
+          <label className="admin-checkbox">
+            <input
+              type="checkbox"
+              name="featured"
+              defaultChecked={project?.featured ?? true}
+            />
+            Featured
+          </label>
+        </div>
+      </section>
 
-      <h3>Arabic</h3>
-      <label>
-        العنوان (AR)
-        <input
-          name="titleAr"
-          defaultValue={project?.titleAr}
-          required
-          dir="rtl"
-        />
-      </label>
-      <label>
-        الملخص (AR)
-        <textarea
-          name="summaryAr"
-          defaultValue={project?.summaryAr}
-          required
-          dir="rtl"
-        />
-      </label>
-      <label>
-        نظرة عامة (AR)
-        <textarea
-          name="overviewAr"
-          defaultValue={project?.overviewAr}
-          required
-          dir="rtl"
-        />
-      </label>
-      <label>
-        المشكلة (AR)
-        <textarea
-          name="problemAr"
-          defaultValue={project?.problemAr}
-          required
-          dir="rtl"
-        />
-      </label>
-      <label>
-        الحل (AR)
-        <textarea
-          name="solutionAr"
-          defaultValue={project?.solutionAr}
-          required
-          dir="rtl"
-        />
-      </label>
-      <label>
-        المعمارية (AR)
-        <textarea
-          name="architectureAr"
-          defaultValue={project?.architectureAr}
-          required
-          dir="rtl"
-        />
-      </label>
-      <label>
-        المزايا AR (سطر لكل ميزة)
-        <textarea
-          name="featuresAr"
-          defaultValue={project?.featuresAr?.join("\n")}
-          rows={5}
-          dir="rtl"
-        />
-      </label>
-      <label>
-        الدور (AR)
-        <textarea
-          name="roleAr"
-          defaultValue={project?.roleAr}
-          required
-          dir="rtl"
-        />
-      </label>
-      <label>
-        النتيجة (AR)
-        <textarea
-          name="resultAr"
-          defaultValue={project?.resultAr}
-          required
-          dir="rtl"
-        />
-      </label>
+      {/* ---------- English ---------- */}
+      <section className="project-form-panel glass" hidden={tab !== "en"}>
+        <label>
+          Title
+          <input name="titleEn" defaultValue={project?.titleEn} required />
+        </label>
+        <label>
+          Summary
+          <textarea
+            name="summaryEn"
+            defaultValue={project?.summaryEn}
+            required
+          />
+        </label>
+        <label>
+          Overview
+          <textarea
+            name="overviewEn"
+            defaultValue={project?.overviewEn}
+            required
+          />
+        </label>
+        <label>
+          Problem
+          <textarea
+            name="problemEn"
+            defaultValue={project?.problemEn}
+            required
+          />
+        </label>
+        <label>
+          Solution
+          <textarea
+            name="solutionEn"
+            defaultValue={project?.solutionEn}
+            required
+          />
+        </label>
+        <label>
+          Architecture
+          <textarea
+            name="architectureEn"
+            defaultValue={project?.architectureEn}
+            required
+          />
+        </label>
+        <label>
+          Features (one per line)
+          <textarea
+            name="featuresEn"
+            defaultValue={project?.featuresEn?.join("\n")}
+            rows={5}
+          />
+        </label>
+        <label>
+          Role
+          <textarea name="roleEn" defaultValue={project?.roleEn} required />
+        </label>
+        <label>
+          Result
+          <textarea name="resultEn" defaultValue={project?.resultEn} required />
+        </label>
+      </section>
 
-      <h3>Media</h3>
-      <SingleImageUploader
-        name="heroImage"
-        label="Hero Image"
-        defaultValue={project?.heroImage}
-      />
-      <MultiImageUploader
-        name="images"
-        label="Gallery Images"
-        defaultValue={project?.images}
-      />
-      <VideoUploader
-        name="videoUrl"
-        label="Project Video (optional)"
-        defaultValue={project?.videoUrl}
-      />
+      {/* ---------- Arabic ---------- */}
+      <section
+        className="project-form-panel glass"
+        hidden={tab !== "ar"}
+        dir="rtl"
+      >
+        <label>
+          العنوان
+          <input name="titleAr" defaultValue={project?.titleAr} required />
+        </label>
+        <label>
+          الملخص
+          <textarea
+            name="summaryAr"
+            defaultValue={project?.summaryAr}
+            required
+          />
+        </label>
+        <label>
+          نظرة عامة
+          <textarea
+            name="overviewAr"
+            defaultValue={project?.overviewAr}
+            required
+          />
+        </label>
+        <label>
+          المشكلة
+          <textarea
+            name="problemAr"
+            defaultValue={project?.problemAr}
+            required
+          />
+        </label>
+        <label>
+          الحل
+          <textarea
+            name="solutionAr"
+            defaultValue={project?.solutionAr}
+            required
+          />
+        </label>
+        <label>
+          المعمارية
+          <textarea
+            name="architectureAr"
+            defaultValue={project?.architectureAr}
+            required
+          />
+        </label>
+        <label>
+          المزايا (سطر لكل ميزة)
+          <textarea
+            name="featuresAr"
+            defaultValue={project?.featuresAr?.join("\n")}
+            rows={5}
+          />
+        </label>
+        <label>
+          الدور
+          <textarea name="roleAr" defaultValue={project?.roleAr} required />
+        </label>
+        <label>
+          النتيجة
+          <textarea name="resultAr" defaultValue={project?.resultAr} required />
+        </label>
+      </section>
 
-      <h3>Meta</h3>
-      <label>
-        Stack (one per line)
-        <textarea
-          name="stack"
-          defaultValue={project?.stack?.join("\n")}
-          rows={4}
+      {/* ---------- Media ---------- */}
+      <section className="project-form-panel glass" hidden={tab !== "media"}>
+        <SingleImageUploader
+          name="heroImage"
+          label="Hero Image"
+          defaultValue={project?.heroImage}
         />
-      </label>
-      <label>
-        Order
-        <input type="number" name="order" defaultValue={project?.order ?? 0} />
-      </label>
-      <label className="admin-checkbox">
-        <input
-          type="checkbox"
-          name="featured"
-          defaultChecked={project?.featured ?? true}
+        <MultiImageUploader
+          name="images"
+          label="Gallery Images"
+          defaultValue={project?.images}
         />
-        Featured
-      </label>
+        <VideoUploader
+          name="videoUrl"
+          label="Project Video (optional)"
+          defaultValue={project?.videoUrl}
+        />
+      </section>
 
-      <button type="submit" className="admin-btn">
-        Save
-      </button>
+      <div className="project-form-actions">
+        <button type="submit" className="admin-btn">
+          Save Project
+        </button>
+      </div>
     </form>
   );
 }
