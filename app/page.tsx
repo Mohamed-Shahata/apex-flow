@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
 import TechStack from "@/components/TechStack";
+import Process from "@/components/Process";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <About />
       <Services />
       <TechStack />
+      <Process />
     </div>
   );
 }

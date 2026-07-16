@@ -359,3 +359,48 @@ body {
   border-color: var(--accent-start);
   transform: translateX(2px);
 }
+
+/* ---------- Process ---------- */
+
+.process {
+  padding: 6rem 1.5rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.process-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  max-width: 40rem;
+}
+
+.process-step {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--glass-border);
+}
+
+.process-step:first-child {
+  border-top: none;
+}
+
+.process-n {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-end);
+  min-width: 2rem;
+}
+
+.process-step h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.process-step p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--slate);
+}
