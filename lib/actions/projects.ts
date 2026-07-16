@@ -40,6 +40,7 @@ function readProjectForm(formData: FormData) {
     stack: splitLines(formData.get("stack")),
     role: str(formData, "role"),
     result: str(formData, "result"),
+    images: splitLines(formData.get("images")),
     featured: formData.get("featured") === "on",
     order: Number(formData.get("order") ?? 0) || 0,
   };

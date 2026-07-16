@@ -81,6 +81,7 @@ export type ProjectCountAggregateOutputType = {
   stack: number
   role: number
   result: number
+  images: number
   featured: number
   order: number
   createdAt: number
@@ -144,6 +145,7 @@ export type ProjectCountAggregateInputType = {
   stack?: true
   role?: true
   result?: true
+  images?: true
   featured?: true
   order?: true
   createdAt?: true
@@ -250,6 +252,7 @@ export type ProjectGroupByOutputType = {
   stack: string[]
   role: string
   result: string
+  images: string[]
   featured: boolean
   order: number
   createdAt: Date
@@ -292,6 +295,7 @@ export type ProjectWhereInput = {
   stack?: Prisma.StringNullableListFilter<"Project">
   role?: Prisma.StringFilter<"Project"> | string
   result?: Prisma.StringFilter<"Project"> | string
+  images?: Prisma.StringNullableListFilter<"Project">
   featured?: Prisma.BoolFilter<"Project"> | boolean
   order?: Prisma.IntFilter<"Project"> | number
   createdAt?: Prisma.DateTimeFilter<"Project"> | Date | string
@@ -311,6 +315,7 @@ export type ProjectOrderByWithRelationInput = {
   stack?: Prisma.SortOrder
   role?: Prisma.SortOrder
   result?: Prisma.SortOrder
+  images?: Prisma.SortOrder
   featured?: Prisma.SortOrder
   order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -333,6 +338,7 @@ export type ProjectWhereUniqueInput = Prisma.AtLeast<{
   stack?: Prisma.StringNullableListFilter<"Project">
   role?: Prisma.StringFilter<"Project"> | string
   result?: Prisma.StringFilter<"Project"> | string
+  images?: Prisma.StringNullableListFilter<"Project">
   featured?: Prisma.BoolFilter<"Project"> | boolean
   order?: Prisma.IntFilter<"Project"> | number
   createdAt?: Prisma.DateTimeFilter<"Project"> | Date | string
@@ -352,6 +358,7 @@ export type ProjectOrderByWithAggregationInput = {
   stack?: Prisma.SortOrder
   role?: Prisma.SortOrder
   result?: Prisma.SortOrder
+  images?: Prisma.SortOrder
   featured?: Prisma.SortOrder
   order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -379,6 +386,7 @@ export type ProjectScalarWhereWithAggregatesInput = {
   stack?: Prisma.StringNullableListFilter<"Project">
   role?: Prisma.StringWithAggregatesFilter<"Project"> | string
   result?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  images?: Prisma.StringNullableListFilter<"Project">
   featured?: Prisma.BoolWithAggregatesFilter<"Project"> | boolean
   order?: Prisma.IntWithAggregatesFilter<"Project"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Project"> | Date | string
@@ -398,6 +406,7 @@ export type ProjectCreateInput = {
   stack?: Prisma.ProjectCreatestackInput | string[]
   role: string
   result: string
+  images?: Prisma.ProjectCreateimagesInput | string[]
   featured?: boolean
   order?: number
   createdAt?: Date | string
@@ -417,6 +426,7 @@ export type ProjectUncheckedCreateInput = {
   stack?: Prisma.ProjectCreatestackInput | string[]
   role: string
   result: string
+  images?: Prisma.ProjectCreateimagesInput | string[]
   featured?: boolean
   order?: number
   createdAt?: Date | string
@@ -436,6 +446,7 @@ export type ProjectUpdateInput = {
   stack?: Prisma.ProjectUpdatestackInput | string[]
   role?: Prisma.StringFieldUpdateOperationsInput | string
   result?: Prisma.StringFieldUpdateOperationsInput | string
+  images?: Prisma.ProjectUpdateimagesInput | string[]
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -455,6 +466,7 @@ export type ProjectUncheckedUpdateInput = {
   stack?: Prisma.ProjectUpdatestackInput | string[]
   role?: Prisma.StringFieldUpdateOperationsInput | string
   result?: Prisma.StringFieldUpdateOperationsInput | string
+  images?: Prisma.ProjectUpdateimagesInput | string[]
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -474,6 +486,7 @@ export type ProjectCreateManyInput = {
   stack?: Prisma.ProjectCreatestackInput | string[]
   role: string
   result: string
+  images?: Prisma.ProjectCreateimagesInput | string[]
   featured?: boolean
   order?: number
   createdAt?: Date | string
@@ -493,6 +506,7 @@ export type ProjectUpdateManyMutationInput = {
   stack?: Prisma.ProjectUpdatestackInput | string[]
   role?: Prisma.StringFieldUpdateOperationsInput | string
   result?: Prisma.StringFieldUpdateOperationsInput | string
+  images?: Prisma.ProjectUpdateimagesInput | string[]
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -512,6 +526,7 @@ export type ProjectUncheckedUpdateManyInput = {
   stack?: Prisma.ProjectUpdatestackInput | string[]
   role?: Prisma.StringFieldUpdateOperationsInput | string
   result?: Prisma.StringFieldUpdateOperationsInput | string
+  images?: Prisma.ProjectUpdateimagesInput | string[]
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -539,6 +554,7 @@ export type ProjectCountOrderByAggregateInput = {
   stack?: Prisma.SortOrder
   role?: Prisma.SortOrder
   result?: Prisma.SortOrder
+  images?: Prisma.SortOrder
   featured?: Prisma.SortOrder
   order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -595,6 +611,10 @@ export type ProjectCreatestackInput = {
   set: string[]
 }
 
+export type ProjectCreateimagesInput = {
+  set: string[]
+}
+
 export type StringFieldUpdateOperationsInput = {
   set?: string
 }
@@ -605,6 +625,11 @@ export type ProjectUpdatefeaturesInput = {
 }
 
 export type ProjectUpdatestackInput = {
+  set?: string[]
+  push?: string | string[]
+}
+
+export type ProjectUpdateimagesInput = {
   set?: string[]
   push?: string | string[]
 }
@@ -640,6 +665,7 @@ export type ProjectSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   stack?: boolean
   role?: boolean
   result?: boolean
+  images?: boolean
   featured?: boolean
   order?: boolean
   createdAt?: boolean
@@ -659,6 +685,7 @@ export type ProjectSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   stack?: boolean
   role?: boolean
   result?: boolean
+  images?: boolean
   featured?: boolean
   order?: boolean
   createdAt?: boolean
@@ -678,6 +705,7 @@ export type ProjectSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   stack?: boolean
   role?: boolean
   result?: boolean
+  images?: boolean
   featured?: boolean
   order?: boolean
   createdAt?: boolean
@@ -697,13 +725,14 @@ export type ProjectSelectScalar = {
   stack?: boolean
   role?: boolean
   result?: boolean
+  images?: boolean
   featured?: boolean
   order?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "title" | "summary" | "overview" | "problem" | "solution" | "architecture" | "features" | "stack" | "role" | "result" | "featured" | "order" | "createdAt" | "updatedAt", ExtArgs["result"]["project"]>
+export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "title" | "summary" | "overview" | "problem" | "solution" | "architecture" | "features" | "stack" | "role" | "result" | "images" | "featured" | "order" | "createdAt" | "updatedAt", ExtArgs["result"]["project"]>
 
 export type $ProjectPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Project"
@@ -721,6 +750,7 @@ export type $ProjectPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     stack: string[]
     role: string
     result: string
+    images: string[]
     featured: boolean
     order: number
     createdAt: Date
@@ -1160,6 +1190,7 @@ export interface ProjectFieldRefs {
   readonly stack: Prisma.FieldRef<"Project", 'String[]'>
   readonly role: Prisma.FieldRef<"Project", 'String'>
   readonly result: Prisma.FieldRef<"Project", 'String'>
+  readonly images: Prisma.FieldRef<"Project", 'String[]'>
   readonly featured: Prisma.FieldRef<"Project", 'Boolean'>
   readonly order: Prisma.FieldRef<"Project", 'Int'>
   readonly createdAt: Prisma.FieldRef<"Project", 'DateTime'>

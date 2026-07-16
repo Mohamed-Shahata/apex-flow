@@ -47,6 +47,11 @@ export { Prisma }
  */
 export type Project = Prisma.ProjectModel
 /**
+ * Model Post
+ * 
+ */
+export type Post = Prisma.PostModel
+/**
  * Model Testimonial
  * 
  */

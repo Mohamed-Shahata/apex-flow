@@ -19,6 +19,9 @@ export default function AdminLayout({
           <Link href="/admin/projects" className="hover:text-foreground">
             Projects
           </Link>
+          <Link href="/admin/blog" className="hover:text-foreground">
+            Blog
+          </Link>
           <Link href="/admin/testimonials" className="hover:text-foreground">
             Testimonials
           </Link>

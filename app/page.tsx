@@ -9,6 +9,7 @@ import WhyUs from "@/components/WhyUs";
 import Contact from "@/components/Contact";
 import Reveal from "@/components/Reveal";
 import dynamic from "next/dynamic";
+import ClientLogos from "@/components/ClientLogos";
 
 const FAQ = dynamic(() => import("@/components/FAQ"));
 
@@ -16,6 +17,7 @@ export default function Home() {
   return (
     <main id="main" className="flex flex-col flex-1">
       <Hero />
+      <ClientLogos />
       <About />
       <Services />
       <TechStack />

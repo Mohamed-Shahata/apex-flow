@@ -10,6 +10,7 @@ type Project = {
   stack: string[];
   role: string;
   result: string;
+  images: string[];
   featured: boolean;
   order: number;
 };
@@ -80,12 +81,17 @@ export default function ProjectForm({
         <textarea name="result" defaultValue={project?.result} required />
       </label>
       <label>
-        Order
-        <input
-          type="number"
-          name="order"
-          defaultValue={project?.order ?? 0}
+        Images (one URL per line)
+        <textarea
+          name="images"
+          defaultValue={project?.images?.join("\n")}
+          rows={4}
+          placeholder="https://..."
         />
+      </label>
+      <label>
+        Order
+        <input type="number" name="order" defaultValue={project?.order ?? 0} />
       </label>
       <label className="admin-checkbox">
         <input

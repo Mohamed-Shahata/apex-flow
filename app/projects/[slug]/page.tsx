@@ -44,6 +44,22 @@ export default async function CaseStudyPage({
 
         <h1 className="case-title">{study.title}</h1>
 
+        {study.images.length > 0 && (
+          <section className="case-block">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {study.images.map((src) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  key={src}
+                  src={src}
+                  alt={study.title}
+                  className="w-full rounded-2xl border border-white/10"
+                />
+              ))}
+            </div>
+          </section>
+        )}
+
         <section className="case-block">
           <h2>Overview</h2>
           <p>{study.overview}</p>

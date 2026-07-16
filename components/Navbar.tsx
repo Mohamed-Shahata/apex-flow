@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { href: "#stack", label: "Tech Stack" },
   { href: "#process", label: "Process" },
   { href: "#projects", label: "Work" },
+  { href: "/blog", label: "Blog" },
   { href: "#contact", label: "Contact" },
 ];
 

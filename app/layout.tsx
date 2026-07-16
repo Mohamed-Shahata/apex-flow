@@ -5,6 +5,7 @@ import LoadingScreen from "@/components/LoadingScreen";
 import MouseGlow from "@/components/MouseGlow";
 import Navbar from "../components/Navbar";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -74,6 +75,7 @@ export default function RootLayout({
         <LoadingScreen />
         <Navbar />
         {children}
+        <BackToTop />
         <Footer />
       </body>
     </html>

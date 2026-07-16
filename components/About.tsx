@@ -41,34 +41,48 @@ export default function About() {
           ))}
         </RevealGroup>
 
-        <Reveal className="about-stats-container mt-12 pt-12 border-t border-[var(--glass-border)]">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="about-stat-card flex flex-col items-center justify-center p-4 text-center">
-              <span className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-                <CountUp to={99.9} decimals={1} suffix="%" />
-              </span>
-              <span className="text-xs uppercase tracking-widest text-[var(--slate)] mt-2">Uptime SLA</span>
-            </div>
-            <div className="about-stat-card flex flex-col items-center justify-center p-4 text-center">
-              <span className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-                <CountUp to={30} suffix="+" />
-              </span>
-              <span className="text-xs uppercase tracking-widest text-[var(--slate)] mt-2">Projects Shipped</span>
-            </div>
-            <div className="about-stat-card flex flex-col items-center justify-center p-4 text-center">
-              <span className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-                <CountUp to={100} suffix="M+" />
-              </span>
-              <span className="text-xs uppercase tracking-widest text-[var(--slate)] mt-2">API Requests</span>
-            </div>
-            <div className="about-stat-card flex flex-col items-center justify-center p-4 text-center">
-              <span className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-                <CountUp to={8} suffix="+" />
-              </span>
-              <span className="text-xs uppercase tracking-widest text-[var(--slate)] mt-2">Years Exp</span>
-            </div>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+          <div className="about-stat-card flex flex-col items-center justify-center p-4 text-center">
+            <span className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+              <CountUp to={99.9} decimals={1} suffix="%" />
+            </span>
+            <span className="text-xs uppercase tracking-widest text-[var(--slate)] mt-2">
+              Uptime SLA
+            </span>
           </div>
-        </Reveal>
+          <div className="about-stat-card flex flex-col items-center justify-center p-4 text-center">
+            <span className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+              <CountUp to={30} suffix="+" />
+            </span>
+            <span className="text-xs uppercase tracking-widest text-[var(--slate)] mt-2">
+              Projects Shipped
+            </span>
+          </div>
+          <div className="about-stat-card flex flex-col items-center justify-center p-4 text-center">
+            <span className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+              <CountUp to={20} suffix="+" />
+            </span>
+            <span className="text-xs uppercase tracking-widest text-[var(--slate)] mt-2">
+              Happy Clients
+            </span>
+          </div>
+          <div className="about-stat-card flex flex-col items-center justify-center p-4 text-center">
+            <span className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+              <CountUp to={100} suffix="M+" />
+            </span>
+            <span className="text-xs uppercase tracking-widest text-[var(--slate)] mt-2">
+              API Requests
+            </span>
+          </div>
+          <div className="about-stat-card flex flex-col items-center justify-center p-4 text-center">
+            <span className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+              <CountUp to={8} suffix="+" />
+            </span>
+            <span className="text-xs uppercase tracking-widest text-[var(--slate)] mt-2">
+              Years Exp
+            </span>
+          </div>
+        </div>
       </div>
     </section>
   );
