@@ -881,6 +881,39 @@ button:focus-visible {
   box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.5);
 }
 
+.admin-sidebar {
+  display: flex;
+  width: 220px;
+  flex-shrink: 0;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem;
+  border-right: 1px solid var(--glass-border);
+  transition:
+    margin-left 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.admin-sidebar.is-closed {
+  margin-left: -220px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.admin-sidebar-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 210;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid var(--glass-border);
+  background: rgba(10, 14, 23, 0.9);
+  color: #ededed;
+  cursor: pointer;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
