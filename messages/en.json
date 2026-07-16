@@ -1,0 +1,15 @@
+{
+  "Nav": {
+    "about": "About",
+    "services": "Services",
+    "stack": "Tech Stack",
+    "process": "Process",
+    "work": "Work",
+    "blog": "Blog",
+    "contact": "Contact",
+    "startProject": "Start a Project",
+    "downloadCv": "Download CV",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  }
+}

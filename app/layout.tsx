@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale } from "next-intl/server";
 import "./globals.css";
 import LoadingScreen from "@/components/LoadingScreen";
 import MouseGlow from "@/components/MouseGlow";
@@ -57,63 +59,69 @@ export const viewport: Viewport = {
   themeColor: "#0a0e17",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const dir = locale === "ar" ? "rtl" : "ltr";
+
   return (
     <html
-      lang="en"
+      lang={locale}
+      dir={dir}
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <MouseGlow />
-        <a href="#main" className="skip-link">
-          Skip to content
-        </a>
+        <NextIntlClientProvider>
+          <MouseGlow />
+          <a href="#main" className="skip-link">
+            Skip to content
+          </a>
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@graph": [
-                {
-                  "@type": "Organization",
-                  "@id": "https://apexflow.dev/#organization",
-                  name: "Apex Flow",
-                  url: "https://apexflow.dev",
-                  logo: "https://apexflow.dev/logo.png",
-                },
-                {
-                  "@type": "Person",
-                  "@id": "https://apexflow.dev/#person",
-                  name: "Mohamed",
-                  jobTitle: "Full-Stack Developer | Backend-Focused",
-                  url: "https://apexflow.dev",
-                  worksFor: { "@id": "https://apexflow.dev/#organization" },
-                  knowsAbout: [
-                    "NestJS",
-                    "Node.js",
-                    "TypeScript",
-                    "PostgreSQL",
-                    "Prisma",
-                    "Next.js",
-                    "React",
-                  ],
-                },
-              ],
-            }),
-          }}
-        />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@graph": [
+                  {
+                    "@type": "Organization",
+                    "@id": "https://apexflow.dev/#organization",
+                    name: "Apex Flow",
+                    url: "https://apexflow.dev",
+                    logo: "https://apexflow.dev/logo.png",
+                  },
+                  {
+                    "@type": "Person",
+                    "@id": "https://apexflow.dev/#person",
+                    name: "Mohamed",
+                    jobTitle: "Full-Stack Developer | Backend-Focused",
+                    url: "https://apexflow.dev",
+                    worksFor: { "@id": "https://apexflow.dev/#organization" },
+                    knowsAbout: [
+                      "NestJS",
+                      "Node.js",
+                      "TypeScript",
+                      "PostgreSQL",
+                      "Prisma",
+                      "Next.js",
+                      "React",
+                    ],
+                  },
+                ],
+              }),
+            }}
+          />
 
-        <LoadingScreen />
-        <Navbar />
-        {children}
-        <BackToTop />
-        <WhatsAppButton />
-        <Footer />
+          <LoadingScreen />
+          <Navbar />
+          {children}
+          <BackToTop />
+          <WhatsAppButton />
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

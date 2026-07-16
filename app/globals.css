@@ -801,6 +801,30 @@ button:focus-visible {
   padding: 2rem 0;
 }
 
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+}
+
+.lang-switch-sep {
+  opacity: 0.4;
+}
+
+.lang-switch-btn {
+  background: none;
+  border: none;
+  color: #8b96a8;
+  cursor: pointer;
+  padding: 0.2rem;
+}
+
+.lang-switch-btn.active {
+  color: var(--accent-end);
+  font-weight: 700;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

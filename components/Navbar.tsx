@@ -1,18 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const NAV_LINKS = [
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#stack", label: "Tech Stack" },
-  { href: "#process", label: "Process" },
-  { href: "#projects", label: "Work" },
-  { href: "/blog", label: "Blog" },
-  { href: "#contact", label: "Contact" },
-];
+import { useTranslations } from "next-intl";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
+  const t = useTranslations("Nav");
+  const NAV_LINKS = [
+    { href: "#about", label: t("about") },
+    { href: "#services", label: t("services") },
+    { href: "#stack", label: t("stack") },
+    { href: "#process", label: t("process") },
+    { href: "#projects", label: t("work") },
+    { href: "/blog", label: t("blog") },
+    { href: "#contact", label: t("contact") },
+  ];
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -64,19 +66,20 @@ export default function Navbar() {
             download
             className="text-sm font-medium text-[#8b96a8] hover:text-[#ededed] transition-colors whitespace-nowrap"
           >
-            Download CV
+            {t("downloadCv")}
           </a>
           <a
             href="#contact"
             className="text-sm font-semibold text-[#ededed] px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 hover:-translate-y-0.5 transition-all whitespace-nowrap"
           >
-            Start a Project
+            {t("startProject")}
           </a>
+          <LanguageSwitcher />
         </div>
 
         <button
           type="button"
-          aria-label={open ? "Close menu" : "Open menu"}
+          aria-label={open ? t("closeMenu") : t("openMenu")}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
           className="md:hidden flex flex-col justify-center gap-1.5 w-9 h-9 shrink-0"
@@ -115,7 +118,7 @@ export default function Navbar() {
             onClick={() => setOpen(false)}
             className="inline-block self-start mt-2 text-sm font-semibold text-[#ededed] px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10"
           >
-            Start a Project
+            {t("startProject")}
           </a>
           <a
             href="/cv.pdf"
@@ -123,8 +126,9 @@ export default function Navbar() {
             onClick={() => setOpen(false)}
             className="text-sm text-[#8b96a8] hover:text-[#ededed] transition-colors"
           >
-            Download CV
+            {t("downloadCv")}
           </a>
+          <LanguageSwitcher />
         </nav>
       </div>
     </header>
