@@ -6,6 +6,7 @@ import Process from "@/components/Process";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import Testimonials from "@/components/Testimonials";
 import WhyUs from "@/components/WhyUs";
+import FAQ from "@/components/FAQ";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <FeaturedProjects />
       <Testimonials />
       <WhyUs />
+      <FAQ />
     </div>
   );
 }
