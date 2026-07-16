@@ -36,28 +36,30 @@ const STEPS = [
   },
 ];
 
+import Reveal, { RevealGroup, RevealItem } from "./Reveal";
+
 export default function Process() {
   return (
     <section className="process" id="process">
       <div className="services-inner">
-        <div className="about-head">
+        <Reveal className="about-head">
           <span className="section-eyebrow">How We Work</span>
           <h2 className="section-title">
             A real sequence, not a slide &mdash; each step gates the next.
           </h2>
-        </div>
+        </Reveal>
 
-        <ol className="process-list">
+        <RevealGroup className="process-list" as="ol">
           {STEPS.map((step) => (
-            <li className="process-step" key={step.n}>
+            <RevealItem className="process-step" as="li" key={step.n}>
               <span className="process-n">{step.n}</span>
               <div>
                 <h3>{step.title}</h3>
                 <p>{step.text}</p>
               </div>
-            </li>
+            </RevealItem>
           ))}
-        </ol>
+        </RevealGroup>
       </div>
     </section>
   );

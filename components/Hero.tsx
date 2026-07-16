@@ -1,64 +1,74 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { motion, type Variants } from "framer-motion";
 
 const STACK = ["NestJS", "Next.js", "TypeScript", "PostgreSQL", "Prisma"];
 
+const container: Variants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const item: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] },
+  },
+};
+
 export default function Hero() {
-  const [mounted, setMounted] = useState(false);
-  const glowRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const raf = requestAnimationFrame(() => setMounted(true));
-    const onMove = (e: MouseEvent) => {
-      const el = glowRef.current;
-      if (!el) return;
-      el.style.setProperty("--x", `${e.clientX}px`);
-      el.style.setProperty("--y", `${e.clientY}px`);
-    };
-    window.addEventListener("mousemove", onMove);
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("mousemove", onMove);
-    };
-  }, []);
-
   return (
     <section className="hero">
-      <div ref={glowRef} className="hero-glow" aria-hidden="true" />
+      {/* Ambient mouse glow now lives at layout-level (see MouseGlow.tsx) */}
       <div className="hero-grid" aria-hidden="true" />
 
-      <div className={`hero-inner ${mounted ? "is-in" : ""}`}>
-        <span className="hero-eyebrow">
+      <motion.div
+        className="hero-inner"
+        variants={container}
+        initial="hidden"
+        animate="show"
+      >
+        <motion.span variants={item} className="hero-eyebrow">
           Full-Stack &middot; Backend-Focused
-        </span>
+        </motion.span>
 
-        <h1 className="hero-title">
+        <motion.h1 variants={item} className="hero-title">
           Apex Flow
           <span className="hero-title-sub">Engineering digital momentum.</span>
-        </h1>
+        </motion.h1>
 
-        <p className="hero-sub">
+        <motion.p variants={item} className="hero-sub">
           We design and ship production-ready SaaS platforms, dashboards, and
           APIs &mdash; not prototypes. From database schema to deployed system,
           one team owns the whole flow.
-        </p>
+        </motion.p>
 
-        <div className="hero-cta">
+        <motion.div variants={item} className="hero-cta">
           <a href="#projects" className="btn btn-primary">
             View Projects
           </a>
           <a href="#contact" className="btn btn-ghost">
             Start a Project
           </a>
-        </div>
+        </motion.div>
 
-        <ul className="hero-stack" aria-label="Core technologies">
+        <motion.ul
+          variants={item}
+          className="hero-stack"
+          aria-label="Core technologies"
+        >
           {STACK.map((tech) => (
             <li key={tech}>{tech}</li>
           ))}
-        </ul>
-      </div>
+        </motion.ul>
+      </motion.div>
     </section>
   );
 }

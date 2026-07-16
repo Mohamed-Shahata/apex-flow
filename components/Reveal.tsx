@@ -32,13 +32,16 @@ export function RevealGroup({
   children,
   className = "",
   stagger = 0.08,
+  as = "div",
 }: {
   children: React.ReactNode;
   className?: string;
   stagger?: number;
+  as?: "div" | "ol" | "ul";
 }) {
+  const MotionTag = motion[as];
   return (
-    <motion.div
+    <MotionTag
       className={className}
       initial="hidden"
       whileInView="show"
@@ -49,19 +52,22 @@ export function RevealGroup({
       }}
     >
       {children}
-    </motion.div>
+    </MotionTag>
   );
 }
 
 export function RevealItem({
   children,
   className = "",
+  as = "div",
 }: {
   children: React.ReactNode;
   className?: string;
+  as?: "div" | "li";
 }) {
+  const MotionTag = motion[as];
   return (
-    <motion.div
+    <MotionTag
       className={className}
       variants={{
         hidden: { opacity: 0, y: 24 },
@@ -73,6 +79,6 @@ export function RevealItem({
       }}
     >
       {children}
-    </motion.div>
+    </MotionTag>
   );
 }

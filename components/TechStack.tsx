@@ -7,18 +7,20 @@ const STACK_GROUPS = [
   { label: "Tools", items: ["Notion", "Figma"] },
 ];
 
+import Reveal, { RevealGroup, RevealItem } from "./Reveal";
+
 export default function TechStack() {
   return (
     <section className="stack" id="stack">
       <div className="services-inner">
-        <div className="about-head">
+        <Reveal className="about-head">
           <span className="section-eyebrow">Tech Stack</span>
           <h2 className="section-title">The tools behind every build.</h2>
-        </div>
+        </Reveal>
 
-        <div className="stack-grid">
+        <RevealGroup className="stack-grid">
           {STACK_GROUPS.map((group) => (
-            <div className="stack-group" key={group.label}>
+            <RevealItem className="stack-group" key={group.label}>
               <span className="stack-label">{group.label}</span>
               <div className="stack-pills">
                 {group.items.map((item) => (
@@ -27,9 +29,9 @@ export default function TechStack() {
                   </span>
                 ))}
               </div>
-            </div>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </div>
     </section>
   );

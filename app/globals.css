@@ -297,16 +297,24 @@ button:focus-visible {
   opacity: 0.5;
 }
 
-.hero-glow {
-  position: absolute;
+/* Layout-level ambient glow that tracks the cursor across the whole app */
+.mouse-glow {
+  position: fixed;
   inset: 0;
+  z-index: -1;
   pointer-events: none;
   background: radial-gradient(
-    480px circle at var(--x, 50%) var(--y, 30%),
-    rgba(59, 130, 246, 0.16),
+    600px circle at var(--x, 50%) var(--y, 30%),
+    rgba(59, 130, 246, 0.12),
     transparent 70%
   );
   transition: background 0.15s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mouse-glow {
+    display: none;
+  }
 }
 
 .hero-inner {
@@ -318,30 +326,22 @@ button:focus-visible {
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  opacity: 0;
-  transform: translateY(16px);
-  transition:
-    opacity 0.7s ease,
-    transform 0.7s ease;
-}
-
-.hero-inner.is-in {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .hero-eyebrow {
   font-size: 0.8rem;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--slate);
 }
 
 .hero-title {
-  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  text-wrap: balance;
+  font-size: clamp(2.6rem, 6.4vw, 4.75rem);
   font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
   background: linear-gradient(120deg, #ffffff 40%, var(--slate) 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -350,9 +350,10 @@ button:focus-visible {
 
 .hero-title-sub {
   display: block;
-  margin-top: 0.5rem;
-  font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  margin-top: 0.6rem;
+  font-size: clamp(1.15rem, 2.6vw, 1.6rem);
   font-weight: 500;
+  letter-spacing: -0.01em;
   background: linear-gradient(120deg, var(--accent-start), var(--accent-end));
   -webkit-background-clip: text;
   background-clip: text;
@@ -360,10 +361,11 @@ button:focus-visible {
 }
 
 .hero-sub {
+  text-wrap: balance;
   max-width: 34rem;
   color: var(--slate);
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 1.08rem;
+  line-height: 1.75;
 }
 
 .hero-cta {
@@ -418,9 +420,7 @@ button:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-inner,
-  .btn,
-  .hero-glow {
+  .btn {
     transition: none;
   }
 }
@@ -494,8 +494,15 @@ button:focus-visible {
 /* ---------- Services ---------- */
 
 .services {
-  padding: 6rem 1.5rem;
-  border-top: 1px solid var(--glass-border);
+  padding: clamp(6rem, 10vw, 8rem) 1.5rem;
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(
+      90deg,
+      transparent,
+      var(--glass-border) 50%,
+      transparent
+    )
+    1;
 }
 
 .services-inner {
@@ -527,8 +534,11 @@ button:focus-visible {
 }
 
 .service-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) scale(1.015);
   border-color: var(--accent-end);
+  box-shadow:
+    0 0 0 1px var(--accent-end),
+    0 12px 32px -12px rgba(59, 130, 246, 0.35);
 }
 
 .service-card h3 {
@@ -566,8 +576,15 @@ button:focus-visible {
 /* ---------- Tech Stack ---------- */
 
 .stack {
-  padding: 6rem 1.5rem;
-  border-top: 1px solid var(--glass-border);
+  padding: clamp(6rem, 10vw, 8rem) 1.5rem;
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(
+      90deg,
+      transparent,
+      var(--glass-border) 50%,
+      transparent
+    )
+    1;
 }
 
 .stack-grid {
@@ -609,14 +626,24 @@ button:focus-visible {
 
 .stack-pill:hover {
   border-color: var(--accent-start);
-  transform: translateX(2px);
+  transform: translateX(2px) scale(1.04);
+  box-shadow:
+    0 0 0 1px var(--accent-start),
+    0 6px 18px -8px rgba(59, 130, 246, 0.35);
 }
 
 /* ---------- Process ---------- */
 
 .process {
-  padding: 6rem 1.5rem;
-  border-top: 1px solid var(--glass-border);
+  padding: clamp(6rem, 10vw, 8rem) 1.5rem;
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(
+      90deg,
+      transparent,
+      var(--glass-border) 50%,
+      transparent
+    )
+    1;
 }
 
 .process-list {
@@ -630,12 +657,22 @@ button:focus-visible {
 .process-step {
   display: flex;
   gap: 1.5rem;
-  padding: 1.5rem 0;
+  padding: 1.5rem 1rem;
+  margin: 0 -1rem;
   border-top: 1px solid var(--glass-border);
+  border-radius: 12px;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .process-step:first-child {
   border-top: none;
+}
+
+.process-step:hover {
+  background: rgba(59, 130, 246, 0.05);
+  transform: translateX(4px);
 }
 
 .process-n {
@@ -848,8 +885,15 @@ button:focus-visible {
 /* ---------- Why Us ---------- */
 
 .whyus {
-  padding: 6rem 1.5rem;
-  border-top: 1px solid var(--glass-border);
+  padding: clamp(6rem, 10vw, 8rem) 1.5rem;
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(
+      90deg,
+      transparent,
+      var(--glass-border) 50%,
+      transparent
+    )
+    1;
 }
 
 .whyus-grid {
@@ -863,6 +907,18 @@ button:focus-visible {
   border: 1px solid var(--glass-border);
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.02);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.whyus-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--accent-start);
+  box-shadow:
+    0 0 0 1px var(--accent-start),
+    0 12px 32px -14px rgba(59, 130, 246, 0.35);
 }
 
 .whyus-card h3 {

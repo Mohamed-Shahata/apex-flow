@@ -33,25 +33,27 @@ const POINTS = [
   },
 ];
 
+import Reveal, { RevealGroup, RevealItem } from "./Reveal";
+
 export default function WhyUs() {
   return (
     <section className="whyus" id="whyus">
       <div className="services-inner">
-        <div className="about-head">
+        <Reveal className="about-head">
           <span className="section-eyebrow">Why Us</span>
           <h2 className="section-title">
             Eight things every project ships with, by default.
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="whyus-grid">
+        <RevealGroup className="whyus-grid">
           {POINTS.map((p) => (
-            <div className="whyus-card" key={p.title}>
+            <RevealItem className="whyus-card" key={p.title}>
               <h3>{p.title}</h3>
               <p>{p.text}</p>
-            </div>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </div>
     </section>
   );
