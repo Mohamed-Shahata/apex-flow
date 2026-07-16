@@ -1,3 +1,9 @@
+import {
+  SingleImageUploader,
+  MultiImageUploader,
+  VideoUploader,
+} from "./CloudinaryUploader";
+
 type Project = {
   slug: string;
   titleEn: string;
@@ -178,31 +184,21 @@ export default function ProjectForm({
       </label>
 
       <h3>Media</h3>
-      <label>
-        Hero Image URL
-        <input
-          name="heroImage"
-          defaultValue={project?.heroImage ?? ""}
-          placeholder="https://..."
-        />
-      </label>
-      <label>
-        Images (one URL per line)
-        <textarea
-          name="images"
-          defaultValue={project?.images?.join("\n")}
-          rows={4}
-          placeholder="https://..."
-        />
-      </label>
-      <label>
-        Video URL
-        <input
-          name="videoUrl"
-          defaultValue={project?.videoUrl ?? ""}
-          placeholder="https://..."
-        />
-      </label>
+      <SingleImageUploader
+        name="heroImage"
+        label="Hero Image"
+        defaultValue={project?.heroImage}
+      />
+      <MultiImageUploader
+        name="images"
+        label="Gallery Images"
+        defaultValue={project?.images}
+      />
+      <VideoUploader
+        name="videoUrl"
+        label="Project Video (optional)"
+        defaultValue={project?.videoUrl}
+      />
 
       <h3>Meta</h3>
       <label>
