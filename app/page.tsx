@@ -8,7 +8,6 @@ import Testimonials from "@/components/Testimonials";
 import WhyUs from "@/components/WhyUs";
 import Contact from "@/components/Contact";
 import Reveal from "@/components/Reveal";
-import Footer from "@/components/Footer";
 import dynamic from "next/dynamic";
 
 const FAQ = dynamic(() => import("@/components/FAQ"));
@@ -26,7 +25,6 @@ export default function Home() {
       <WhyUs />
       <FAQ />
       <Contact />
-      <Footer />
     </main>
   );
 }

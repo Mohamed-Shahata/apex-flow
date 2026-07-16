@@ -16,6 +16,10 @@
   --font-mono: var(--font-geist-mono);
 }
 
+[id] {
+  scroll-margin-top: 5rem;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -1398,7 +1402,9 @@ button:focus-visible {
   font-size: 0.85rem;
   color: var(--slate);
   text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .footer-links-col a:hover {
