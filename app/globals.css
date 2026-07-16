@@ -475,3 +475,73 @@ body {
   border: 1px solid var(--glass-border);
   border-radius: 999px;
 }
+
+/* ---------- Case Study ---------- */
+
+.case {
+  padding: 5rem 1.5rem 6rem;
+}
+
+.case-inner {
+  max-width: 44rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.case-back {
+  font-size: 0.85rem;
+  color: var(--slate);
+  width: fit-content;
+}
+
+.case-back:hover {
+  color: var(--accent-start);
+}
+
+.case-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.case-block h2 {
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-end);
+  margin-bottom: 0.75rem;
+}
+
+.case-block p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--foreground);
+}
+
+.case-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.case-list li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.case-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: linear-gradient(120deg, var(--accent-start), var(--accent-end));
+}
