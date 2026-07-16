@@ -310,3 +310,52 @@ body {
   border-radius: 50%;
   background: linear-gradient(120deg, var(--accent-start), var(--accent-end));
 }
+
+/* ---------- Tech Stack ---------- */
+
+.stack {
+  padding: 6rem 1.5rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+}
+
+.stack-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.stack-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+.stack-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stack-pill {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.stack-pill:hover {
+  border-color: var(--accent-start);
+  transform: translateX(2px);
+}
