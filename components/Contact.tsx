@@ -1,5 +1,6 @@
 // Replace href values with real contact links/handles.
 import ContactForm from "@/components/ContactForm";
+import BookingWidget from "@/components/BookingWidget";
 import Reveal, { RevealGroup, RevealItem } from "./Reveal";
 
 const CHANNELS = [
@@ -53,10 +54,11 @@ export default function Contact() {
         </RevealGroup>
 
         <Reveal className="flex flex-col gap-6 mt-8">
-          <div>
+          <div className="flex gap-4 flex-wrap">
             <a className="btn btn-primary contact-cv" href="/cv.pdf" download>
               Download CV
             </a>
+            <BookingWidget />
           </div>
           <ContactForm />
         </Reveal>

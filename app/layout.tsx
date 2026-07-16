@@ -6,6 +6,7 @@ import MouseGlow from "@/components/MouseGlow";
 import Navbar from "../components/Navbar";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -76,6 +77,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <BackToTop />
+        <WhatsAppButton />
         <Footer />
       </body>
     </html>
