@@ -834,6 +834,7 @@ button:focus-visible {
 .project-card {
   display: flex;
   flex-direction: column;
+  height: 100%;
   border: 1px solid var(--glass-border);
   border-radius: 16px;
   overflow: hidden;
@@ -867,6 +868,11 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  flex: 1;
+}
+
+.project-body p {
+  flex: 1;
 }
 
 .project-body h3 {
@@ -992,6 +998,7 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  height: 100%;
   margin: 0;
   transition:
     transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
@@ -1013,6 +1020,7 @@ button:focus-visible {
   line-height: 1.7;
   color: var(--foreground);
   margin: 0;
+  flex: 1;
 }
 
 .testimonial-card figcaption {
@@ -1366,6 +1374,7 @@ button:focus-visible {
   flex-direction: column;
   gap: 0.35rem;
   padding: 1.25rem;
+  height: 100%;
   border: 1px solid var(--glass-border);
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.02);
