@@ -14,9 +14,38 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Apex Flow — Engineering Digital Momentum",
+  metadataBase: new URL("https://apexflow.dev"),
+  title: {
+    default: "Apex Flow — Engineering Digital Momentum",
+    template: "%s | Apex Flow",
+  },
   description:
     "Full-stack, backend-focused development studio building production-ready SaaS, dashboards, and APIs.",
+  keywords: [
+    "NestJS developer",
+    "Next.js developer",
+    "full-stack developer",
+    "SaaS development",
+    "backend architecture",
+  ],
+  openGraph: {
+    title: "Apex Flow — Engineering Digital Momentum",
+    description:
+      "Full-stack, backend-focused development studio building production-ready SaaS, dashboards, and APIs.",
+    url: "https://apexflow.dev",
+    siteName: "Apex Flow",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Apex Flow — Engineering Digital Momentum",
+    description:
+      "Full-stack, backend-focused development studio building production-ready SaaS, dashboards, and APIs.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

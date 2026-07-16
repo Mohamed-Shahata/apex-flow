@@ -1,9 +1,30 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { CASE_STUDIES } from "@/lib/case-studies";
 
 export function generateStaticParams() {
   return Object.keys(CASE_STUDIES).map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const study = CASE_STUDIES[slug];
+  if (!study) return {};
+
+  return {
+    title: study.title,
+    description: study.overview,
+    openGraph: {
+      title: study.title,
+      description: study.overview,
+      type: "article",
+    },
+  };
 }
 
 export default async function CaseStudyPage({
