@@ -1,3 +1,6 @@
+import CountUp from "@/components/CountUp";
+import Reveal, { RevealGroup, RevealItem } from "./Reveal";
+
 const REASONS = [
   {
     title: "Full ownership",
@@ -21,22 +24,51 @@ export default function About() {
   return (
     <section className="about" id="about">
       <div className="about-inner">
-        <div className="about-head">
+        <Reveal className="about-head">
           <span className="section-eyebrow">Why Apex Flow</span>
           <h2 className="section-title">
             Not just &ldquo;who we are&rdquo; &mdash; why teams choose to build
             with us.
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="about-grid">
+        <RevealGroup className="about-grid">
           {REASONS.map((r) => (
-            <div className="about-card" key={r.title}>
+            <RevealItem className="about-card" key={r.title}>
               <h3>{r.title}</h3>
               <p>{r.text}</p>
-            </div>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
+
+        <Reveal className="about-stats-container mt-12 pt-12 border-t border-[var(--glass-border)]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="about-stat-card flex flex-col items-center justify-center p-4 text-center">
+              <span className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+                <CountUp to={99.9} decimals={1} suffix="%" />
+              </span>
+              <span className="text-xs uppercase tracking-widest text-[var(--slate)] mt-2">Uptime SLA</span>
+            </div>
+            <div className="about-stat-card flex flex-col items-center justify-center p-4 text-center">
+              <span className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+                <CountUp to={30} suffix="+" />
+              </span>
+              <span className="text-xs uppercase tracking-widest text-[var(--slate)] mt-2">Projects Shipped</span>
+            </div>
+            <div className="about-stat-card flex flex-col items-center justify-center p-4 text-center">
+              <span className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+                <CountUp to={100} suffix="M+" />
+              </span>
+              <span className="text-xs uppercase tracking-widest text-[var(--slate)] mt-2">API Requests</span>
+            </div>
+            <div className="about-stat-card flex flex-col items-center justify-center p-4 text-center">
+              <span className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+                <CountUp to={8} suffix="+" />
+              </span>
+              <span className="text-xs uppercase tracking-widest text-[var(--slate)] mt-2">Years Exp</span>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 // Replace href values with real contact links/handles.
 import ContactForm from "@/components/ContactForm";
+import Reveal, { RevealGroup, RevealItem } from "./Reveal";
 
 const CHANNELS = [
   {
@@ -33,27 +34,32 @@ export default function Contact() {
   return (
     <section className="contact" id="contact">
       <div className="services-inner">
-        <div className="about-head">
+        <Reveal className="about-head">
           <span className="section-eyebrow">Get In Touch</span>
           <h2 className="section-title">
             Have a project in mind? Let&rsquo;s talk about it.
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="contact-grid">
+        <RevealGroup className="contact-grid">
           {CHANNELS.map((c) => (
-            <a className="contact-card" href={c.href} key={c.label}>
-              <span className="contact-label">{c.label}</span>
-              <span className="contact-value">{c.value}</span>
-            </a>
+            <RevealItem as="div" key={c.label}>
+              <a className="contact-card" href={c.href}>
+                <span className="contact-label">{c.label}</span>
+                <span className="contact-value">{c.value}</span>
+              </a>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
 
-        <a className="btn btn-primary contact-cv" href="/cv.pdf" download>
-          Download CV
-        </a>
-
-        <ContactForm />
+        <Reveal className="flex flex-col gap-6 mt-8">
+          <div>
+            <a className="btn btn-primary contact-cv" href="/cv.pdf" download>
+              Download CV
+            </a>
+          </div>
+          <ContactForm />
+        </Reveal>
       </div>
     </section>
   );
