@@ -11,3 +11,22 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Project {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  title        String
+  summary      String
+  overview     String
+  problem      String
+  solution     String
+  architecture String
+  features     String[]
+  stack        String[]
+  role         String
+  result       String
+  featured     Boolean  @default(true)
+  order        Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}

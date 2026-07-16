@@ -1,11 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { CASE_STUDIES } from "@/lib/case-studies";
+import { getProjectBySlug } from "@/lib/actions/projects";
 
-export function generateStaticParams() {
-  return Object.keys(CASE_STUDIES).map((slug) => ({ slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
@@ -13,7 +11,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const study = CASE_STUDIES[slug];
+  const study = await getProjectBySlug(slug);
   if (!study) return {};
 
   return {
@@ -33,7 +31,7 @@ export default async function CaseStudyPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const study = CASE_STUDIES[slug];
+  const study = await getProjectBySlug(slug);
 
   if (!study) notFound();
 

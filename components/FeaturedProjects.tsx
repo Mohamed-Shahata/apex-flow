@@ -1,28 +1,9 @@
-const PROJECTS = [
-  {
-    slug: "clinic-management-system",
-    title: "Clinic Management System",
-    summary:
-      "Multi-tenant SaaS platform with role-specific dashboards, prescription workflows, and installment billing.",
-    stack: ["NestJS", "Next.js", "Prisma", "AWS EC2"],
-  },
-  {
-    slug: "erp-inventory-system",
-    title: "ERP / Inventory System",
-    summary:
-      "Full ERP covering suppliers, purchase/sales orders, invoices, and audited stock movements.",
-    stack: ["NestJS", "Next.js", "PostgreSQL", "Prisma"],
-  },
-  {
-    slug: "security-vulnerability-scanner",
-    title: "Security Vulnerability Scanner",
-    summary:
-      "Microservices-based scanner with a queue-driven scan pipeline and a dedicated dashboard.",
-    stack: ["NestJS", "BullMQ", "Next.js"],
-  },
-];
+import { getProjects } from "@/lib/actions/projects";
 
-export default function FeaturedProjects() {
+export default async function FeaturedProjects() {
+  const all = await getProjects();
+  const PROJECTS = all.filter((p) => p.featured);
+
   return (
     <section className="projects" id="projects">
       <div className="services-inner">

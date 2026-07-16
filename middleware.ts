@@ -2,10 +2,10 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { verifySessionToken, COOKIE_NAME } from "@/lib/auth";
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const isLoginPage = request.nextUrl.pathname === "/admin/login";
   const token = request.cookies.get(COOKIE_NAME)?.value;
-  const isAuthed = verifySessionToken(token);
+  const isAuthed = await verifySessionToken(token);
 
   if (!isAuthed && !isLoginPage) {
     const loginUrl = new URL("/admin/login", request.url);
