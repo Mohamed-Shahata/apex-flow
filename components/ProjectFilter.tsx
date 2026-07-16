@@ -1,0 +1,72 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import { RevealGroup, RevealItem } from "./Reveal";
+
+type Project = {
+  slug: string;
+  title: string;
+  summary: string;
+  stack: string[];
+};
+
+export default function ProjectFilter({ projects }: { projects: Project[] }) {
+  const [active, setActive] = useState<string>("All");
+
+  const tags = useMemo(() => {
+    const set = new Set<string>();
+    projects.forEach((p) => p.stack.forEach((t) => set.add(t)));
+    return ["All", ...Array.from(set).sort()];
+  }, [projects]);
+
+  const filtered = useMemo(() => {
+    if (active === "All") return projects;
+    return projects.filter((p) => p.stack.includes(active));
+  }, [projects, active]);
+
+  return (
+    <>
+      <div
+        className="project-filter"
+        role="tablist"
+        aria-label="Filter projects by technology"
+      >
+        {tags.map((tag) => (
+          <button
+            key={tag}
+            type="button"
+            role="tab"
+            aria-selected={active === tag}
+            className={`project-filter-btn${active === tag ? " active" : ""}`}
+            onClick={() => setActive(tag)}
+          >
+            {tag}
+          </button>
+        ))}
+      </div>
+
+      <RevealGroup className="projects-grid">
+        {filtered.map((p) => (
+          <RevealItem as="div" key={p.slug}>
+            <a className="project-card" href={`/projects/${p.slug}`}>
+              <div className="project-thumb" aria-hidden="true" />
+              <div className="project-body">
+                <h3>{p.title}</h3>
+                <p>{p.summary}</p>
+                <div className="project-tags">
+                  {p.stack.map((t) => (
+                    <span key={t}>{t}</span>
+                  ))}
+                </div>
+              </div>
+            </a>
+          </RevealItem>
+        ))}
+      </RevealGroup>
+
+      {filtered.length === 0 && (
+        <p className="project-filter-empty">No projects match this filter.</p>
+      )}
+    </>
+  );
+}

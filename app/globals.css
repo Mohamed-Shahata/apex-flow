@@ -764,6 +764,43 @@ button:focus-visible {
     1;
 }
 
+.project-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 2rem 0 2.5rem;
+}
+
+.project-filter-btn {
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.02);
+  color: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.project-filter-btn:hover {
+  border-color: var(--accent-end);
+}
+
+.project-filter-btn.active {
+  background: var(--accent-end);
+  border-color: var(--accent-end);
+  color: #05070d;
+  font-weight: 600;
+}
+
+.project-filter-empty {
+  opacity: 0.6;
+  padding: 2rem 0;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

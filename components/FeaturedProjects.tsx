@@ -1,5 +1,6 @@
 import { getProjects } from "@/lib/actions/projects";
-import Reveal, { RevealGroup, RevealItem } from "./Reveal";
+import Reveal from "./Reveal";
+import ProjectFilter from "./ProjectFilter";
 
 export default async function FeaturedProjects() {
   const all = await getProjects();
@@ -15,24 +16,7 @@ export default async function FeaturedProjects() {
           </h2>
         </Reveal>
 
-        <RevealGroup className="projects-grid">
-          {PROJECTS.map((p) => (
-            <RevealItem as="div" key={p.slug}>
-              <a className="project-card" href={`/projects/${p.slug}`}>
-                <div className="project-thumb" aria-hidden="true" />
-                <div className="project-body">
-                  <h3>{p.title}</h3>
-                  <p>{p.summary}</p>
-                  <div className="project-tags">
-                    {p.stack.map((t) => (
-                      <span key={t}>{t}</span>
-                    ))}
-                  </div>
-                </div>
-              </a>
-            </RevealItem>
-          ))}
-        </RevealGroup>
+        <ProjectFilter projects={PROJECTS} />
       </div>
     </section>
   );
