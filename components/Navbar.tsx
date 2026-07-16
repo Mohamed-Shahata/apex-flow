@@ -39,38 +39,91 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between gap-6 px-6">
-        <a href="#main" className="text-lg font-bold bg-gradient-to-r from-[#3b82f6] to-[#06b6d4] bg-clip-text text-transparent shrink-0">
+        <a
+          href="#main"
+          className="text-lg font-bold bg-gradient-to-r from-[#3b82f6] to-[#06b6d4] bg-clip-text text-transparent shrink-0"
+        >
           Apex Flow
         </a>
 
         <nav aria-label="Primary" className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href} className="text-sm text-[#8b96a8] hover:text-[#ededed] transition-colors whitespace-nowrap">
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-sm text-[#8b96a8] hover:text-[#ededed] transition-colors whitespace-nowrap"
+            >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <a href="#contact" className="hidden md:inline-block text-sm font-semibold text-[#ededed] px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 hover:-translate-y-0.5 transition-all whitespace-nowrap">
-          Start a Project
-        </a>
+        <div className="hidden md:flex items-center gap-3 shrink-0">
+          <a
+            href="/cv.pdf"
+            download
+            className="text-sm font-medium text-[#8b96a8] hover:text-[#ededed] transition-colors whitespace-nowrap"
+          >
+            Download CV
+          </a>
+          <a
+            href="#contact"
+            className="text-sm font-semibold text-[#ededed] px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 hover:-translate-y-0.5 transition-all whitespace-nowrap"
+          >
+            Start a Project
+          </a>
+        </div>
 
-        <button type="button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen((v) => !v)} className="md:hidden flex flex-col justify-center gap-1.5 w-9 h-9 shrink-0">
-          <span className={`block h-0.5 w-full bg-[#ededed] rounded transition-transform duration-300 ${open ? "translate-y-2 rotate-45" : ""}`} />
-          <span className={`block h-0.5 w-full bg-[#ededed] rounded transition-opacity duration-300 ${open ? "opacity-0" : ""}`} />
-          <span className={`block h-0.5 w-full bg-[#ededed] rounded transition-transform duration-300 ${open ? "-translate-y-2 -rotate-45" : ""}`} />
+        <button
+          type="button"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+          className="md:hidden flex flex-col justify-center gap-1.5 w-9 h-9 shrink-0"
+        >
+          <span
+            className={`block h-0.5 w-full bg-[#ededed] rounded transition-transform duration-300 ${open ? "translate-y-2 rotate-45" : ""}`}
+          />
+          <span
+            className={`block h-0.5 w-full bg-[#ededed] rounded transition-opacity duration-300 ${open ? "opacity-0" : ""}`}
+          />
+          <span
+            className={`block h-0.5 w-full bg-[#ededed] rounded transition-transform duration-300 ${open ? "-translate-y-2 -rotate-45" : ""}`}
+          />
         </button>
       </div>
 
-      <div className={`md:hidden grid overflow-hidden transition-[grid-template-rows] duration-300 ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
-        <nav aria-label="Mobile" className="min-h-0 flex flex-col gap-5 px-6 pt-6 pb-6">
+      <div
+        className={`md:hidden grid overflow-hidden transition-[grid-template-rows] duration-300 ${open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+      >
+        <nav
+          aria-label="Mobile"
+          className="min-h-0 flex flex-col gap-5 px-6 pt-6 pb-6"
+        >
           {NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setOpen(false)} className="text-base text-[#8b96a8] hover:text-[#ededed] transition-colors">
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className="text-base text-[#8b96a8] hover:text-[#ededed] transition-colors"
+            >
               {link.label}
             </a>
           ))}
-          <a href="#contact" onClick={() => setOpen(false)} className="inline-block self-start mt-2 text-sm font-semibold text-[#ededed] px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10">
+          <a
+            href="#contact"
+            onClick={() => setOpen(false)}
+            className="inline-block self-start mt-2 text-sm font-semibold text-[#ededed] px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10"
+          >
             Start a Project
+          </a>
+          <a
+            href="/cv.pdf"
+            download
+            onClick={() => setOpen(false)}
+            className="text-sm text-[#8b96a8] hover:text-[#ededed] transition-colors"
+          >
+            Download CV
           </a>
         </nav>
       </div>
