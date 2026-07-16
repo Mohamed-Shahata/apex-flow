@@ -592,3 +592,40 @@ body {
   font-size: 0.8rem;
   color: var(--slate);
 }
+
+/* ---------- Why Us ---------- */
+
+.whyus {
+  padding: 6rem 1.5rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.whyus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.whyus-card {
+  padding: 1.25rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.whyus-card h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  background: linear-gradient(120deg, var(--accent-start), var(--accent-end));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.whyus-card p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--slate);
+}

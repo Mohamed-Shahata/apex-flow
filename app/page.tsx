@@ -5,6 +5,7 @@ import TechStack from "@/components/TechStack";
 import Process from "@/components/Process";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import Testimonials from "@/components/Testimonials";
+import WhyUs from "@/components/WhyUs";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Process />
       <FeaturedProjects />
       <Testimonials />
+      <WhyUs />
     </div>
   );
 }
