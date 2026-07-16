@@ -15,11 +15,11 @@ export async function generateMetadata({
   if (!study) return {};
 
   return {
-    title: study.title,
-    description: study.overview,
+    title: study.titleEn,
+    description: study.overviewEn,
     openGraph: {
-      title: study.title,
-      description: study.overview,
+      title: study.titleEn,
+      description: study.overviewEn,
       type: "article",
     },
   };
@@ -38,8 +38,8 @@ export default async function CaseStudyPage({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    name: study.title,
-    description: study.overview,
+    name: study.titleEn,
+    description: study.overviewEn,
     url: `https://apexflow.dev/projects/${study.slug}`,
     creator: {
       "@type": "Person",
@@ -60,7 +60,7 @@ export default async function CaseStudyPage({
           &larr; Back to projects
         </Link>
 
-        <h1 className="case-title">{study.title}</h1>
+        <h1 className="case-title">{study.titleEn}</h1>
 
         {study.images.length > 0 && (
           <section className="case-block">
@@ -70,7 +70,7 @@ export default async function CaseStudyPage({
                 <img
                   key={src}
                   src={src}
-                  alt={study.title}
+                  alt={study.titleEn}
                   className="w-full rounded-2xl border border-white/10"
                 />
               ))}
@@ -80,28 +80,28 @@ export default async function CaseStudyPage({
 
         <section className="case-block">
           <h2>Overview</h2>
-          <p>{study.overview}</p>
+          <p>{study.overviewEn}</p>
         </section>
 
         <section className="case-block">
           <h2>Problem</h2>
-          <p>{study.problem}</p>
+          <p>{study.problemEn}</p>
         </section>
 
         <section className="case-block">
           <h2>Solution</h2>
-          <p>{study.solution}</p>
+          <p>{study.solutionEn}</p>
         </section>
 
         <section className="case-block">
           <h2>Architecture</h2>
-          <p>{study.architecture}</p>
+          <p>{study.architectureEn}</p>
         </section>
 
         <section className="case-block">
           <h2>Features</h2>
           <ul className="case-list">
-            {study.features.map((f) => (
+            {study.featuresEn.map((f) => (
               <li key={f}>{f}</li>
             ))}
           </ul>
@@ -118,12 +118,12 @@ export default async function CaseStudyPage({
 
         <section className="case-block">
           <h2>Role</h2>
-          <p>{study.role}</p>
+          <p>{study.roleEn}</p>
         </section>
 
         <section className="case-block">
           <h2>Result</h2>
-          <p>{study.result}</p>
+          <p>{study.resultEn}</p>
         </section>
       </div>
     </article>

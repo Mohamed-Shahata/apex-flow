@@ -5,8 +5,8 @@ import { RevealGroup, RevealItem } from "./Reveal";
 
 type Project = {
   slug: string;
-  title: string;
-  summary: string;
+  titleEn: string;
+  summaryEn: string;
   stack: string[];
 };
 
@@ -51,8 +51,8 @@ export default function ProjectFilter({ projects }: { projects: Project[] }) {
             <a className="project-card" href={`/projects/${p.slug}`}>
               <div className="project-thumb" aria-hidden="true" />
               <div className="project-body">
-                <h3>{p.title}</h3>
-                <p>{p.summary}</p>
+                <h3>{p.titleEn}</h3>
+                <p>{p.summaryEn}</p>
                 <div className="project-tags">
                   {p.stack.map((t) => (
                     <span key={t}>{t}</span>

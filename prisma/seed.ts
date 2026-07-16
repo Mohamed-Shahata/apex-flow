@@ -8,24 +8,43 @@ const prisma = new PrismaClient({ adapter });
 const projects = [
   {
     slug: "clinic-management-system",
-    title: "Clinic Management System",
-    summary:
+    titleEn: "Clinic Management System",
+    titleAr: "نظام إدارة العيادات",
+    summaryEn:
       "Multi-tenant SaaS platform with role-specific dashboards, prescription workflows, and installment billing.",
-    overview:
+    summaryAr:
+      "منصة SaaS متعددة العيادات بلوحات تحكم مختلفة لكل دور، ونظام روشتات، وفوترة بالتقسيط.",
+    overviewEn:
       "A multi-tenant SaaS platform that lets multiple clinics run independently on one codebase, each with isolated data and role-based dashboards.",
-    problem:
+    overviewAr:
+      "منصة SaaS متعددة العيادات (Multi-tenant) بتشغّل كل عيادة بشكل مستقل على نفس الكود، وكل عيادة ليها بياناتها المعزولة ولوحات تحكم حسب الدور.",
+    problemEn:
       "Clinics needed a system where a super admin, doctor admins, doctors, and receptionists each see only what's relevant to their role, without separate deployments per clinic.",
-    solution:
+    problemAr:
+      "العيادات محتاجة نظام يخلي كل من الأدمن العام، وأدمن الدكاترة، والدكاترة، والريسبشن، كل واحد يشوف اللي يخصه بس، من غير ما نعمل نسخة منفصلة لكل عيادة.",
+    solutionEn:
       "Built a single multi-tenant NestJS backend with strict tenant scoping, and role-specific dashboards on the Next.js frontend driven by the same auth session.",
-    architecture:
+    solutionAr:
+      "اتبنى backend واحد بـ NestJS بيعزل بيانات كل عيادة عن التانية، ولوحات تحكم مختلفة على فرونت Next.js حسب الدور، كله شغال على نفس جلسة الدخول.",
+    architectureEn:
       "httpOnly cookie-based JWT auth with refresh token rotation; RBAC middleware gates every route by role and tenant.",
-    features: [
+    architectureAr:
+      "تسجيل الدخول بـ JWT عبر httpOnly cookie مع تدوير refresh token، وRBAC middleware بيتحكم في كل route حسب الدور والعيادة.",
+    featuresEn: [
       "Multi-step booking modal",
       "Doctor workspace with a prescription system",
       "Installment payments and staff salary management",
       "PDF report generation with multiple prescription templates",
       "Real-time WebSocket notifications",
       "Clinic deactivation with immediate session invalidation",
+    ],
+    featuresAr: [
+      "نافذة حجز متعددة الخطوات",
+      "مساحة عمل للدكتور مع نظام روشتات",
+      "دفع بالتقسيط وإدارة مرتبات الموظفين",
+      "تصدير تقارير PDF بقوالب روشتات متعددة",
+      "إشعارات لحظية عبر WebSocket",
+      "تعطيل العيادة مع إنهاء الجلسات فوراً",
     ],
     stack: [
       "NestJS",
@@ -36,60 +55,106 @@ const projects = [
       "PM2",
       "Vercel",
     ],
-    role: "Full-stack developer — backend architecture, auth, and API design; frontend dashboards.",
-    result:
+    roleEn:
+      "Full-stack developer — backend architecture, auth, and API design; frontend dashboards.",
+    roleAr:
+      "مطور Full-stack — بنيت الـ backend والـ auth وتصميم الـ API، وكمان لوحات التحكم بالفرونت.",
+    resultEn:
       "A single deployable system serving multiple independent clinics, each with isolated data and role-appropriate access.",
+    resultAr:
+      "نظام واحد قابل للنشر بيخدم عدة عيادات مستقلة، كل عيادة ببياناتها المعزولة وصلاحيات تناسب دور كل مستخدم.",
     featured: true,
     order: 1,
   },
   {
     slug: "erp-inventory-system",
-    title: "ERP / Inventory System",
-    summary:
+    titleEn: "ERP / Inventory System",
+    titleAr: "نظام ERP لإدارة المخزون",
+    summaryEn:
       "Full ERP covering suppliers, purchase/sales orders, invoices, and audited stock movements.",
-    overview:
+    summaryAr:
+      "نظام ERP متكامل بيغطي الموردين وأوامر الشراء والبيع والفواتير وحركة المخزون بسجل تدقيق كامل.",
+    overviewEn:
       "A full-featured ERP covering the day-to-day operations of a business that moves physical inventory: suppliers, orders, payments, and stock.",
-    problem:
+    overviewAr:
+      "نظام ERP شامل بيغطي العمليات اليومية لأي بيزنس بيتعامل مع مخزون فعلي: الموردين، الأوردرات، المدفوعات، والمخزون.",
+    problemEn:
       "The business needed accurate, auditable stock movement tracking alongside purchase/sales order and invoice management, without piecing together spreadsheets.",
-    solution:
+    problemAr:
+      "البيزنس محتاج تتبع دقيق وقابل للتدقيق لحركة المخزون، جنب إدارة أوامر الشراء والبيع والفواتير، من غير الاعتماد على شيتات إكسل متفرقة.",
+    solutionEn:
       "Built a unified data model in Prisma/PostgreSQL connecting suppliers, orders, payments, and stock movements, with an audit log on every mutation.",
-    architecture:
+    solutionAr:
+      "اتبنى موديل بيانات موحّد بـ Prisma/PostgreSQL بيربط الموردين والأوردرات والمدفوعات وحركة المخزون، مع سجل تدقيق على كل عملية تعديل.",
+    architectureEn:
       "NestJS backend exposing a typed API to a Next.js frontend; admin-editable static pages via a rich text editor for non-technical updates.",
-    features: [
+    architectureAr:
+      "backend بـ NestJS بيوفر API متطابق الأنواع لفرونت Next.js، مع صفحات ثابتة قابلة للتعديل من الأدمن عبر محرر نصوص غني.",
+    featuresEn: [
       "Suppliers, purchase orders, and sales orders",
       "Payments, invoices, and full audit logs",
       "Per-chart period filters on reporting dashboards",
       "Full system export to PDF and Excel",
       "Print-ready invoice formatting",
     ],
+    featuresAr: [
+      "إدارة الموردين وأوامر الشراء والبيع",
+      "المدفوعات والفواتير وسجلات تدقيق كاملة",
+      "فلاتر فترات زمنية لكل رسم بياني في التقارير",
+      "تصدير كامل للنظام بصيغة PDF وExcel",
+      "تنسيق فواتير جاهز للطباعة",
+    ],
     stack: ["NestJS", "Next.js", "Prisma", "PostgreSQL"],
-    role: "Full-stack developer — data modeling, API, reporting, and documentation.",
-    result:
+    roleEn:
+      "Full-stack developer — data modeling, API, reporting, and documentation.",
+    roleAr: "مطور Full-stack — تصميم البيانات والـ API والتقارير والتوثيق.",
+    resultEn:
       "Generated Mermaid-based architecture documentation and split READMEs so the system is maintainable beyond the original build.",
+    resultAr:
+      "اتعمل توثيق معماري بـ Mermaid وملفات README منفصلة عشان النظام يفضل قابل للصيانة بعد أي حد غير اللي بناه.",
     featured: true,
     order: 2,
   },
   {
     slug: "security-vulnerability-scanner",
-    title: "Security Vulnerability Scanner",
-    summary:
+    titleEn: "Security Vulnerability Scanner",
+    titleAr: "أداة فحص الثغرات الأمنية",
+    summaryEn:
       "Microservices-based scanner with a queue-driven scan pipeline and a dedicated dashboard.",
-    overview:
+    summaryAr:
+      "أداة فحص أمني بمعمارية microservices، مع خط فحص مبني على طوابير مهام ولوحة تحكم مخصصة.",
+    overviewEn:
       "A microservices-based scanner that queues and runs security scans asynchronously, surfacing results on a dedicated dashboard.",
-    problem:
+    overviewAr:
+      "أداة فحص أمني بمعمارية microservices بتضيف الفحوصات لطابور مهام وتشغّلها بشكل غير متزامن، وتعرض النتائج على لوحة تحكم مخصصة.",
+    problemEn:
       "Scans can be long-running and resource-heavy; running them inline in a request/response cycle doesn't scale.",
-    solution:
+    problemAr:
+      "الفحوصات ممكن تاخد وقت طويل وتستهلك موارد كتير؛ تشغيلها مباشرة جوه دورة request/response مش قابل للتوسع.",
+    solutionEn:
       "Split the system into a NestJS API service and a dedicated BullMQ-powered scanner-service, decoupled by a job queue.",
-    architecture:
+    solutionAr:
+      "اتقسم النظام لخدمة API بـ NestJS، وخدمة فحص منفصلة شغالة بـ BullMQ، والاتنين منفصلين عن بعض عبر طابور مهام.",
+    architectureEn:
       "NestJS backend enqueues scan jobs; a separate scanner-service worker processes them and reports status back for the Next.js frontend to poll/display.",
-    features: [
+    architectureAr:
+      "الـ backend بـ NestJS بيحط مهام الفحص في الطابور، وworker منفصل في scanner-service بيعالجها ويرجّع الحالة عشان فرونت Next.js يعرضها.",
+    featuresEn: [
       "Queue-driven scan pipeline",
       "Scan status and results dashboard",
       "Service separation between API and scan execution",
     ],
+    featuresAr: [
+      "خط فحص مبني على طوابير المهام",
+      "لوحة تحكم لحالة الفحص والنتائج",
+      "فصل كامل بين خدمة الـ API وتنفيذ الفحص",
+    ],
     stack: ["NestJS", "BullMQ", "Next.js"],
-    role: "Full-stack developer — microservice architecture and queue design.",
-    result: "Actively in progress.",
+    roleEn:
+      "Full-stack developer — microservice architecture and queue design.",
+    roleAr: "مطور Full-stack — معمارية microservices وتصميم طوابير المهام.",
+    resultEn: "Actively in progress.",
+    resultAr: "شغال عليه حالياً.",
     featured: true,
     order: 3,
   },

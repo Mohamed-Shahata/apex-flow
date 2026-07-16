@@ -1,16 +1,27 @@
 type Project = {
   slug: string;
-  title: string;
-  summary: string;
-  overview: string;
-  problem: string;
-  solution: string;
-  architecture: string;
-  features: string[];
+  titleEn: string;
+  titleAr: string;
+  summaryEn: string;
+  summaryAr: string;
+  overviewEn: string;
+  overviewAr: string;
+  problemEn: string;
+  problemAr: string;
+  solutionEn: string;
+  solutionAr: string;
+  architectureEn: string;
+  architectureAr: string;
+  featuresEn: string[];
+  featuresAr: string[];
   stack: string[];
-  role: string;
-  result: string;
+  roleEn: string;
+  roleAr: string;
+  resultEn: string;
+  resultAr: string;
+  heroImage: string | null;
   images: string[];
+  videoUrl: string | null;
   featured: boolean;
   order: number;
 };
@@ -28,57 +39,152 @@ export default function ProjectForm({
         Slug
         <input name="slug" defaultValue={project?.slug} required />
       </label>
+
+      <h3>English</h3>
       <label>
-        Title
-        <input name="title" defaultValue={project?.title} required />
+        Title (EN)
+        <input name="titleEn" defaultValue={project?.titleEn} required />
       </label>
       <label>
-        Summary
-        <textarea name="summary" defaultValue={project?.summary} required />
+        Summary (EN)
+        <textarea name="summaryEn" defaultValue={project?.summaryEn} required />
       </label>
       <label>
-        Overview
-        <textarea name="overview" defaultValue={project?.overview} required />
-      </label>
-      <label>
-        Problem
-        <textarea name="problem" defaultValue={project?.problem} required />
-      </label>
-      <label>
-        Solution
-        <textarea name="solution" defaultValue={project?.solution} required />
-      </label>
-      <label>
-        Architecture
+        Overview (EN)
         <textarea
-          name="architecture"
-          defaultValue={project?.architecture}
+          name="overviewEn"
+          defaultValue={project?.overviewEn}
           required
         />
       </label>
       <label>
-        Features (one per line)
+        Problem (EN)
+        <textarea name="problemEn" defaultValue={project?.problemEn} required />
+      </label>
+      <label>
+        Solution (EN)
         <textarea
-          name="features"
-          defaultValue={project?.features?.join("\n")}
+          name="solutionEn"
+          defaultValue={project?.solutionEn}
+          required
+        />
+      </label>
+      <label>
+        Architecture (EN)
+        <textarea
+          name="architectureEn"
+          defaultValue={project?.architectureEn}
+          required
+        />
+      </label>
+      <label>
+        Features EN (one per line)
+        <textarea
+          name="featuresEn"
+          defaultValue={project?.featuresEn?.join("\n")}
           rows={5}
         />
       </label>
       <label>
-        Stack (one per line)
-        <textarea
-          name="stack"
-          defaultValue={project?.stack?.join("\n")}
-          rows={4}
+        Role (EN)
+        <textarea name="roleEn" defaultValue={project?.roleEn} required />
+      </label>
+      <label>
+        Result (EN)
+        <textarea name="resultEn" defaultValue={project?.resultEn} required />
+      </label>
+
+      <h3>Arabic</h3>
+      <label>
+        العنوان (AR)
+        <input
+          name="titleAr"
+          defaultValue={project?.titleAr}
+          required
+          dir="rtl"
         />
       </label>
       <label>
-        Role
-        <textarea name="role" defaultValue={project?.role} required />
+        الملخص (AR)
+        <textarea
+          name="summaryAr"
+          defaultValue={project?.summaryAr}
+          required
+          dir="rtl"
+        />
       </label>
       <label>
-        Result
-        <textarea name="result" defaultValue={project?.result} required />
+        نظرة عامة (AR)
+        <textarea
+          name="overviewAr"
+          defaultValue={project?.overviewAr}
+          required
+          dir="rtl"
+        />
+      </label>
+      <label>
+        المشكلة (AR)
+        <textarea
+          name="problemAr"
+          defaultValue={project?.problemAr}
+          required
+          dir="rtl"
+        />
+      </label>
+      <label>
+        الحل (AR)
+        <textarea
+          name="solutionAr"
+          defaultValue={project?.solutionAr}
+          required
+          dir="rtl"
+        />
+      </label>
+      <label>
+        المعمارية (AR)
+        <textarea
+          name="architectureAr"
+          defaultValue={project?.architectureAr}
+          required
+          dir="rtl"
+        />
+      </label>
+      <label>
+        المزايا AR (سطر لكل ميزة)
+        <textarea
+          name="featuresAr"
+          defaultValue={project?.featuresAr?.join("\n")}
+          rows={5}
+          dir="rtl"
+        />
+      </label>
+      <label>
+        الدور (AR)
+        <textarea
+          name="roleAr"
+          defaultValue={project?.roleAr}
+          required
+          dir="rtl"
+        />
+      </label>
+      <label>
+        النتيجة (AR)
+        <textarea
+          name="resultAr"
+          defaultValue={project?.resultAr}
+          required
+          dir="rtl"
+        />
+      </label>
+
+      <h3>Media</h3>
+      <label>
+        Hero Image URL
+        <input
+          name="heroImage"
+          defaultValue={project?.heroImage ?? ""}
+          placeholder="https://..."
+        />
       </label>
       <label>
         Images (one URL per line)
@@ -87,6 +193,24 @@ export default function ProjectForm({
           defaultValue={project?.images?.join("\n")}
           rows={4}
           placeholder="https://..."
+        />
+      </label>
+      <label>
+        Video URL
+        <input
+          name="videoUrl"
+          defaultValue={project?.videoUrl ?? ""}
+          placeholder="https://..."
+        />
+      </label>
+
+      <h3>Meta</h3>
+      <label>
+        Stack (one per line)
+        <textarea
+          name="stack"
+          defaultValue={project?.stack?.join("\n")}
+          rows={4}
         />
       </label>
       <label>

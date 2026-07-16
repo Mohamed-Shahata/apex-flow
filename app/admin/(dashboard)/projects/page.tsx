@@ -30,7 +30,7 @@ export default async function AdminProjectsPage() {
             {projects.map((p) => (
               <tr key={p.id}>
                 <td>{p.order}</td>
-                <td>{p.title}</td>
+                <td>{p.titleEn}</td>
                 <td>{p.slug}</td>
                 <td>{p.featured ? "Yes" : "No"}</td>
                 <td className="admin-table-actions">

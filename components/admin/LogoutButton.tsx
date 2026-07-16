@@ -3,7 +3,11 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function LogoutButton() {
+export default function LogoutButton({
+  iconOnly = false,
+}: {
+  iconOnly?: boolean;
+}) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -19,9 +23,14 @@ export default function LogoutButton() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="mt-auto text-left text-sm text-slate-400 hover:text-red-400"
+        title="Log out"
+        className={
+          iconOnly
+            ? "mt-auto flex justify-center text-slate-400 hover:text-red-400"
+            : "mt-auto text-left text-sm text-slate-400 hover:text-red-400"
+        }
       >
-        Log out
+        {iconOnly ? "⎋" : "Log out"}
       </button>
 
       {open && (
