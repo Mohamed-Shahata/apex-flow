@@ -43,7 +43,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto flex items-center justify-between gap-6 px-6">
         <a
           href="#main"
-          className="text-lg font-bold bg-gradient-to-r from-[#3b82f6] to-[#06b6d4] bg-clip-text text-transparent shrink-0"
+          className="text-lg font-bold bg-linear-to-r from-[#3b82f6] to-[#06b6d4] bg-clip-text text-transparent shrink-0"
         >
           Apex Flow
         </a>
@@ -61,13 +61,6 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden md:flex items-center gap-3 shrink-0">
-          <a
-            href="/cv.pdf"
-            download
-            className="text-sm font-medium text-[#8b96a8] hover:text-[#ededed] transition-colors whitespace-nowrap"
-          >
-            {t("downloadCv")}
-          </a>
           <a
             href="#contact"
             className="text-sm font-semibold text-[#ededed] px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 hover:-translate-y-0.5 transition-all whitespace-nowrap"
