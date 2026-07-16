@@ -33,9 +33,16 @@ export default function MessageNotifier({
 
   return (
     <>
-      {count > 0 && <span className="admin-nav-badge">{count}</span>}
+      {count > 0 && (
+        <span className="inline-flex min-w-[18px] h-[18px] items-center justify-center rounded-full bg-cyan-400 px-1.5 text-[11px] font-bold text-[#05070d]">
+          {count}
+        </span>
+      )}
       {toast && (
-        <div className="admin-toast" role="status">
+        <div
+          role="status"
+          className="fixed bottom-6 right-6 z-[200] rounded-xl border border-white/10 bg-[#0f1420] px-5 py-3 text-sm text-white shadow-2xl"
+        >
           You have new contact messages
         </div>
       )}

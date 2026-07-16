@@ -5,10 +5,7 @@ import { getLocale } from "next-intl/server";
 import "./globals.css";
 import LoadingScreen from "@/components/LoadingScreen";
 import MouseGlow from "@/components/MouseGlow";
-import Navbar from "../components/Navbar";
-import Footer from "@/components/Footer";
-import BackToTop from "@/components/BackToTop";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import { SiteHeader, SiteChrome } from "@/components/SiteChrome";
 import VisitTracker from "@/components/VisitTracker";
 
 const geistSans = Geist({
@@ -118,11 +115,9 @@ export default async function RootLayout({
           />
 
           <LoadingScreen />
-          <Navbar />
+          <SiteHeader />
           {children}
-          <BackToTop />
-          <WhatsAppButton />
-          <Footer />
+          <SiteChrome />
         </NextIntlClientProvider>
       </body>
     </html>
