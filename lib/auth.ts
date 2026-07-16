@@ -70,4 +70,15 @@ export function verifyPassword(password: string) {
   return timingSafeEqualStr(password, expected);
 }
 
+export function verifyEmail(email: string) {
+  const expected = process.env.ADMIN_EMAIL;
+  if (!expected) {
+    throw new Error("ADMIN_EMAIL is not set");
+  }
+  return timingSafeEqualStr(
+    email.trim().toLowerCase(),
+    expected.trim().toLowerCase(),
+  );
+}
+
 export { COOKIE_NAME, SESSION_MAX_AGE };
