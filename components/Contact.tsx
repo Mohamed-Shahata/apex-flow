@@ -55,9 +55,6 @@ export default function Contact() {
 
         <Reveal className="flex flex-col gap-6 mt-8">
           <div className="flex gap-4 flex-wrap">
-            <a className="btn btn-primary contact-cv" href="/cv.pdf" download>
-              Download CV
-            </a>
             <BookingWidget />
           </div>
           <ContactForm />

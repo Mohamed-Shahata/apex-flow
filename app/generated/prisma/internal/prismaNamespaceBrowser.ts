@@ -57,7 +57,8 @@ export const ModelName = {
   Service: 'Service',
   Faq: 'Faq',
   ContactMessage: 'ContactMessage',
-  PageVisit: 'PageVisit'
+  PageVisit: 'PageVisit',
+  Booking: 'Booking'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -79,17 +80,28 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 export const ProjectScalarFieldEnum = {
   id: 'id',
   slug: 'slug',
-  title: 'title',
-  summary: 'summary',
-  overview: 'overview',
-  problem: 'problem',
-  solution: 'solution',
-  architecture: 'architecture',
-  features: 'features',
+  titleEn: 'titleEn',
+  titleAr: 'titleAr',
+  summaryEn: 'summaryEn',
+  summaryAr: 'summaryAr',
+  overviewEn: 'overviewEn',
+  overviewAr: 'overviewAr',
+  problemEn: 'problemEn',
+  problemAr: 'problemAr',
+  solutionEn: 'solutionEn',
+  solutionAr: 'solutionAr',
+  architectureEn: 'architectureEn',
+  architectureAr: 'architectureAr',
+  featuresEn: 'featuresEn',
+  featuresAr: 'featuresAr',
   stack: 'stack',
-  role: 'role',
-  result: 'result',
+  roleEn: 'roleEn',
+  roleAr: 'roleAr',
+  resultEn: 'resultEn',
+  resultAr: 'resultAr',
+  heroImage: 'heroImage',
   images: 'images',
+  videoUrl: 'videoUrl',
   featured: 'featured',
   order: 'order',
   createdAt: 'createdAt',
@@ -171,6 +183,19 @@ export const PageVisitScalarFieldEnum = {
 } as const
 
 export type PageVisitScalarFieldEnum = (typeof PageVisitScalarFieldEnum)[keyof typeof PageVisitScalarFieldEnum]
+
+
+export const BookingScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  date: 'date',
+  time: 'time',
+  notes: 'notes',
+  createdAt: 'createdAt'
+} as const
+
+export type BookingScalarFieldEnum = (typeof BookingScalarFieldEnum)[keyof typeof BookingScalarFieldEnum]
 
 
 export const SortOrder = {

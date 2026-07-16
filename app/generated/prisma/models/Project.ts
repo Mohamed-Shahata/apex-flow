@@ -37,14 +37,24 @@ export type ProjectSumAggregateOutputType = {
 export type ProjectMinAggregateOutputType = {
   id: string | null
   slug: string | null
-  title: string | null
-  summary: string | null
-  overview: string | null
-  problem: string | null
-  solution: string | null
-  architecture: string | null
-  role: string | null
-  result: string | null
+  titleEn: string | null
+  titleAr: string | null
+  summaryEn: string | null
+  summaryAr: string | null
+  overviewEn: string | null
+  overviewAr: string | null
+  problemEn: string | null
+  problemAr: string | null
+  solutionEn: string | null
+  solutionAr: string | null
+  architectureEn: string | null
+  architectureAr: string | null
+  roleEn: string | null
+  roleAr: string | null
+  resultEn: string | null
+  resultAr: string | null
+  heroImage: string | null
+  videoUrl: string | null
   featured: boolean | null
   order: number | null
   createdAt: Date | null
@@ -54,14 +64,24 @@ export type ProjectMinAggregateOutputType = {
 export type ProjectMaxAggregateOutputType = {
   id: string | null
   slug: string | null
-  title: string | null
-  summary: string | null
-  overview: string | null
-  problem: string | null
-  solution: string | null
-  architecture: string | null
-  role: string | null
-  result: string | null
+  titleEn: string | null
+  titleAr: string | null
+  summaryEn: string | null
+  summaryAr: string | null
+  overviewEn: string | null
+  overviewAr: string | null
+  problemEn: string | null
+  problemAr: string | null
+  solutionEn: string | null
+  solutionAr: string | null
+  architectureEn: string | null
+  architectureAr: string | null
+  roleEn: string | null
+  roleAr: string | null
+  resultEn: string | null
+  resultAr: string | null
+  heroImage: string | null
+  videoUrl: string | null
   featured: boolean | null
   order: number | null
   createdAt: Date | null
@@ -71,17 +91,28 @@ export type ProjectMaxAggregateOutputType = {
 export type ProjectCountAggregateOutputType = {
   id: number
   slug: number
-  title: number
-  summary: number
-  overview: number
-  problem: number
-  solution: number
-  architecture: number
-  features: number
+  titleEn: number
+  titleAr: number
+  summaryEn: number
+  summaryAr: number
+  overviewEn: number
+  overviewAr: number
+  problemEn: number
+  problemAr: number
+  solutionEn: number
+  solutionAr: number
+  architectureEn: number
+  architectureAr: number
+  featuresEn: number
+  featuresAr: number
   stack: number
-  role: number
-  result: number
+  roleEn: number
+  roleAr: number
+  resultEn: number
+  resultAr: number
+  heroImage: number
   images: number
+  videoUrl: number
   featured: number
   order: number
   createdAt: number
@@ -101,14 +132,24 @@ export type ProjectSumAggregateInputType = {
 export type ProjectMinAggregateInputType = {
   id?: true
   slug?: true
-  title?: true
-  summary?: true
-  overview?: true
-  problem?: true
-  solution?: true
-  architecture?: true
-  role?: true
-  result?: true
+  titleEn?: true
+  titleAr?: true
+  summaryEn?: true
+  summaryAr?: true
+  overviewEn?: true
+  overviewAr?: true
+  problemEn?: true
+  problemAr?: true
+  solutionEn?: true
+  solutionAr?: true
+  architectureEn?: true
+  architectureAr?: true
+  roleEn?: true
+  roleAr?: true
+  resultEn?: true
+  resultAr?: true
+  heroImage?: true
+  videoUrl?: true
   featured?: true
   order?: true
   createdAt?: true
@@ -118,14 +159,24 @@ export type ProjectMinAggregateInputType = {
 export type ProjectMaxAggregateInputType = {
   id?: true
   slug?: true
-  title?: true
-  summary?: true
-  overview?: true
-  problem?: true
-  solution?: true
-  architecture?: true
-  role?: true
-  result?: true
+  titleEn?: true
+  titleAr?: true
+  summaryEn?: true
+  summaryAr?: true
+  overviewEn?: true
+  overviewAr?: true
+  problemEn?: true
+  problemAr?: true
+  solutionEn?: true
+  solutionAr?: true
+  architectureEn?: true
+  architectureAr?: true
+  roleEn?: true
+  roleAr?: true
+  resultEn?: true
+  resultAr?: true
+  heroImage?: true
+  videoUrl?: true
   featured?: true
   order?: true
   createdAt?: true
@@ -135,17 +186,28 @@ export type ProjectMaxAggregateInputType = {
 export type ProjectCountAggregateInputType = {
   id?: true
   slug?: true
-  title?: true
-  summary?: true
-  overview?: true
-  problem?: true
-  solution?: true
-  architecture?: true
-  features?: true
+  titleEn?: true
+  titleAr?: true
+  summaryEn?: true
+  summaryAr?: true
+  overviewEn?: true
+  overviewAr?: true
+  problemEn?: true
+  problemAr?: true
+  solutionEn?: true
+  solutionAr?: true
+  architectureEn?: true
+  architectureAr?: true
+  featuresEn?: true
+  featuresAr?: true
   stack?: true
-  role?: true
-  result?: true
+  roleEn?: true
+  roleAr?: true
+  resultEn?: true
+  resultAr?: true
+  heroImage?: true
   images?: true
+  videoUrl?: true
   featured?: true
   order?: true
   createdAt?: true
@@ -242,17 +304,28 @@ export type ProjectGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 export type ProjectGroupByOutputType = {
   id: string
   slug: string
-  title: string
-  summary: string
-  overview: string
-  problem: string
-  solution: string
-  architecture: string
-  features: string[]
+  titleEn: string
+  titleAr: string
+  summaryEn: string
+  summaryAr: string
+  overviewEn: string
+  overviewAr: string
+  problemEn: string
+  problemAr: string
+  solutionEn: string
+  solutionAr: string
+  architectureEn: string
+  architectureAr: string
+  featuresEn: string[]
+  featuresAr: string[]
   stack: string[]
-  role: string
-  result: string
+  roleEn: string
+  roleAr: string
+  resultEn: string
+  resultAr: string
+  heroImage: string | null
   images: string[]
+  videoUrl: string | null
   featured: boolean
   order: number
   createdAt: Date
@@ -285,17 +358,28 @@ export type ProjectWhereInput = {
   NOT?: Prisma.ProjectWhereInput | Prisma.ProjectWhereInput[]
   id?: Prisma.StringFilter<"Project"> | string
   slug?: Prisma.StringFilter<"Project"> | string
-  title?: Prisma.StringFilter<"Project"> | string
-  summary?: Prisma.StringFilter<"Project"> | string
-  overview?: Prisma.StringFilter<"Project"> | string
-  problem?: Prisma.StringFilter<"Project"> | string
-  solution?: Prisma.StringFilter<"Project"> | string
-  architecture?: Prisma.StringFilter<"Project"> | string
-  features?: Prisma.StringNullableListFilter<"Project">
+  titleEn?: Prisma.StringFilter<"Project"> | string
+  titleAr?: Prisma.StringFilter<"Project"> | string
+  summaryEn?: Prisma.StringFilter<"Project"> | string
+  summaryAr?: Prisma.StringFilter<"Project"> | string
+  overviewEn?: Prisma.StringFilter<"Project"> | string
+  overviewAr?: Prisma.StringFilter<"Project"> | string
+  problemEn?: Prisma.StringFilter<"Project"> | string
+  problemAr?: Prisma.StringFilter<"Project"> | string
+  solutionEn?: Prisma.StringFilter<"Project"> | string
+  solutionAr?: Prisma.StringFilter<"Project"> | string
+  architectureEn?: Prisma.StringFilter<"Project"> | string
+  architectureAr?: Prisma.StringFilter<"Project"> | string
+  featuresEn?: Prisma.StringNullableListFilter<"Project">
+  featuresAr?: Prisma.StringNullableListFilter<"Project">
   stack?: Prisma.StringNullableListFilter<"Project">
-  role?: Prisma.StringFilter<"Project"> | string
-  result?: Prisma.StringFilter<"Project"> | string
+  roleEn?: Prisma.StringFilter<"Project"> | string
+  roleAr?: Prisma.StringFilter<"Project"> | string
+  resultEn?: Prisma.StringFilter<"Project"> | string
+  resultAr?: Prisma.StringFilter<"Project"> | string
+  heroImage?: Prisma.StringNullableFilter<"Project"> | string | null
   images?: Prisma.StringNullableListFilter<"Project">
+  videoUrl?: Prisma.StringNullableFilter<"Project"> | string | null
   featured?: Prisma.BoolFilter<"Project"> | boolean
   order?: Prisma.IntFilter<"Project"> | number
   createdAt?: Prisma.DateTimeFilter<"Project"> | Date | string
@@ -305,17 +389,28 @@ export type ProjectWhereInput = {
 export type ProjectOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   slug?: Prisma.SortOrder
-  title?: Prisma.SortOrder
-  summary?: Prisma.SortOrder
-  overview?: Prisma.SortOrder
-  problem?: Prisma.SortOrder
-  solution?: Prisma.SortOrder
-  architecture?: Prisma.SortOrder
-  features?: Prisma.SortOrder
+  titleEn?: Prisma.SortOrder
+  titleAr?: Prisma.SortOrder
+  summaryEn?: Prisma.SortOrder
+  summaryAr?: Prisma.SortOrder
+  overviewEn?: Prisma.SortOrder
+  overviewAr?: Prisma.SortOrder
+  problemEn?: Prisma.SortOrder
+  problemAr?: Prisma.SortOrder
+  solutionEn?: Prisma.SortOrder
+  solutionAr?: Prisma.SortOrder
+  architectureEn?: Prisma.SortOrder
+  architectureAr?: Prisma.SortOrder
+  featuresEn?: Prisma.SortOrder
+  featuresAr?: Prisma.SortOrder
   stack?: Prisma.SortOrder
-  role?: Prisma.SortOrder
-  result?: Prisma.SortOrder
+  roleEn?: Prisma.SortOrder
+  roleAr?: Prisma.SortOrder
+  resultEn?: Prisma.SortOrder
+  resultAr?: Prisma.SortOrder
+  heroImage?: Prisma.SortOrderInput | Prisma.SortOrder
   images?: Prisma.SortOrder
+  videoUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   featured?: Prisma.SortOrder
   order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -328,17 +423,28 @@ export type ProjectWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.ProjectWhereInput | Prisma.ProjectWhereInput[]
   OR?: Prisma.ProjectWhereInput[]
   NOT?: Prisma.ProjectWhereInput | Prisma.ProjectWhereInput[]
-  title?: Prisma.StringFilter<"Project"> | string
-  summary?: Prisma.StringFilter<"Project"> | string
-  overview?: Prisma.StringFilter<"Project"> | string
-  problem?: Prisma.StringFilter<"Project"> | string
-  solution?: Prisma.StringFilter<"Project"> | string
-  architecture?: Prisma.StringFilter<"Project"> | string
-  features?: Prisma.StringNullableListFilter<"Project">
+  titleEn?: Prisma.StringFilter<"Project"> | string
+  titleAr?: Prisma.StringFilter<"Project"> | string
+  summaryEn?: Prisma.StringFilter<"Project"> | string
+  summaryAr?: Prisma.StringFilter<"Project"> | string
+  overviewEn?: Prisma.StringFilter<"Project"> | string
+  overviewAr?: Prisma.StringFilter<"Project"> | string
+  problemEn?: Prisma.StringFilter<"Project"> | string
+  problemAr?: Prisma.StringFilter<"Project"> | string
+  solutionEn?: Prisma.StringFilter<"Project"> | string
+  solutionAr?: Prisma.StringFilter<"Project"> | string
+  architectureEn?: Prisma.StringFilter<"Project"> | string
+  architectureAr?: Prisma.StringFilter<"Project"> | string
+  featuresEn?: Prisma.StringNullableListFilter<"Project">
+  featuresAr?: Prisma.StringNullableListFilter<"Project">
   stack?: Prisma.StringNullableListFilter<"Project">
-  role?: Prisma.StringFilter<"Project"> | string
-  result?: Prisma.StringFilter<"Project"> | string
+  roleEn?: Prisma.StringFilter<"Project"> | string
+  roleAr?: Prisma.StringFilter<"Project"> | string
+  resultEn?: Prisma.StringFilter<"Project"> | string
+  resultAr?: Prisma.StringFilter<"Project"> | string
+  heroImage?: Prisma.StringNullableFilter<"Project"> | string | null
   images?: Prisma.StringNullableListFilter<"Project">
+  videoUrl?: Prisma.StringNullableFilter<"Project"> | string | null
   featured?: Prisma.BoolFilter<"Project"> | boolean
   order?: Prisma.IntFilter<"Project"> | number
   createdAt?: Prisma.DateTimeFilter<"Project"> | Date | string
@@ -348,17 +454,28 @@ export type ProjectWhereUniqueInput = Prisma.AtLeast<{
 export type ProjectOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   slug?: Prisma.SortOrder
-  title?: Prisma.SortOrder
-  summary?: Prisma.SortOrder
-  overview?: Prisma.SortOrder
-  problem?: Prisma.SortOrder
-  solution?: Prisma.SortOrder
-  architecture?: Prisma.SortOrder
-  features?: Prisma.SortOrder
+  titleEn?: Prisma.SortOrder
+  titleAr?: Prisma.SortOrder
+  summaryEn?: Prisma.SortOrder
+  summaryAr?: Prisma.SortOrder
+  overviewEn?: Prisma.SortOrder
+  overviewAr?: Prisma.SortOrder
+  problemEn?: Prisma.SortOrder
+  problemAr?: Prisma.SortOrder
+  solutionEn?: Prisma.SortOrder
+  solutionAr?: Prisma.SortOrder
+  architectureEn?: Prisma.SortOrder
+  architectureAr?: Prisma.SortOrder
+  featuresEn?: Prisma.SortOrder
+  featuresAr?: Prisma.SortOrder
   stack?: Prisma.SortOrder
-  role?: Prisma.SortOrder
-  result?: Prisma.SortOrder
+  roleEn?: Prisma.SortOrder
+  roleAr?: Prisma.SortOrder
+  resultEn?: Prisma.SortOrder
+  resultAr?: Prisma.SortOrder
+  heroImage?: Prisma.SortOrderInput | Prisma.SortOrder
   images?: Prisma.SortOrder
+  videoUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   featured?: Prisma.SortOrder
   order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -376,17 +493,28 @@ export type ProjectScalarWhereWithAggregatesInput = {
   NOT?: Prisma.ProjectScalarWhereWithAggregatesInput | Prisma.ProjectScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Project"> | string
   slug?: Prisma.StringWithAggregatesFilter<"Project"> | string
-  title?: Prisma.StringWithAggregatesFilter<"Project"> | string
-  summary?: Prisma.StringWithAggregatesFilter<"Project"> | string
-  overview?: Prisma.StringWithAggregatesFilter<"Project"> | string
-  problem?: Prisma.StringWithAggregatesFilter<"Project"> | string
-  solution?: Prisma.StringWithAggregatesFilter<"Project"> | string
-  architecture?: Prisma.StringWithAggregatesFilter<"Project"> | string
-  features?: Prisma.StringNullableListFilter<"Project">
+  titleEn?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  titleAr?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  summaryEn?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  summaryAr?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  overviewEn?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  overviewAr?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  problemEn?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  problemAr?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  solutionEn?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  solutionAr?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  architectureEn?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  architectureAr?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  featuresEn?: Prisma.StringNullableListFilter<"Project">
+  featuresAr?: Prisma.StringNullableListFilter<"Project">
   stack?: Prisma.StringNullableListFilter<"Project">
-  role?: Prisma.StringWithAggregatesFilter<"Project"> | string
-  result?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  roleEn?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  roleAr?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  resultEn?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  resultAr?: Prisma.StringWithAggregatesFilter<"Project"> | string
+  heroImage?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
   images?: Prisma.StringNullableListFilter<"Project">
+  videoUrl?: Prisma.StringNullableWithAggregatesFilter<"Project"> | string | null
   featured?: Prisma.BoolWithAggregatesFilter<"Project"> | boolean
   order?: Prisma.IntWithAggregatesFilter<"Project"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Project"> | Date | string
@@ -396,17 +524,28 @@ export type ProjectScalarWhereWithAggregatesInput = {
 export type ProjectCreateInput = {
   id?: string
   slug: string
-  title: string
-  summary: string
-  overview: string
-  problem: string
-  solution: string
-  architecture: string
-  features?: Prisma.ProjectCreatefeaturesInput | string[]
+  titleEn: string
+  titleAr: string
+  summaryEn: string
+  summaryAr: string
+  overviewEn: string
+  overviewAr: string
+  problemEn: string
+  problemAr: string
+  solutionEn: string
+  solutionAr: string
+  architectureEn: string
+  architectureAr: string
+  featuresEn?: Prisma.ProjectCreatefeaturesEnInput | string[]
+  featuresAr?: Prisma.ProjectCreatefeaturesArInput | string[]
   stack?: Prisma.ProjectCreatestackInput | string[]
-  role: string
-  result: string
+  roleEn: string
+  roleAr: string
+  resultEn: string
+  resultAr: string
+  heroImage?: string | null
   images?: Prisma.ProjectCreateimagesInput | string[]
+  videoUrl?: string | null
   featured?: boolean
   order?: number
   createdAt?: Date | string
@@ -416,17 +555,28 @@ export type ProjectCreateInput = {
 export type ProjectUncheckedCreateInput = {
   id?: string
   slug: string
-  title: string
-  summary: string
-  overview: string
-  problem: string
-  solution: string
-  architecture: string
-  features?: Prisma.ProjectCreatefeaturesInput | string[]
+  titleEn: string
+  titleAr: string
+  summaryEn: string
+  summaryAr: string
+  overviewEn: string
+  overviewAr: string
+  problemEn: string
+  problemAr: string
+  solutionEn: string
+  solutionAr: string
+  architectureEn: string
+  architectureAr: string
+  featuresEn?: Prisma.ProjectCreatefeaturesEnInput | string[]
+  featuresAr?: Prisma.ProjectCreatefeaturesArInput | string[]
   stack?: Prisma.ProjectCreatestackInput | string[]
-  role: string
-  result: string
+  roleEn: string
+  roleAr: string
+  resultEn: string
+  resultAr: string
+  heroImage?: string | null
   images?: Prisma.ProjectCreateimagesInput | string[]
+  videoUrl?: string | null
   featured?: boolean
   order?: number
   createdAt?: Date | string
@@ -436,17 +586,28 @@ export type ProjectUncheckedCreateInput = {
 export type ProjectUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  summary?: Prisma.StringFieldUpdateOperationsInput | string
-  overview?: Prisma.StringFieldUpdateOperationsInput | string
-  problem?: Prisma.StringFieldUpdateOperationsInput | string
-  solution?: Prisma.StringFieldUpdateOperationsInput | string
-  architecture?: Prisma.StringFieldUpdateOperationsInput | string
-  features?: Prisma.ProjectUpdatefeaturesInput | string[]
+  titleEn?: Prisma.StringFieldUpdateOperationsInput | string
+  titleAr?: Prisma.StringFieldUpdateOperationsInput | string
+  summaryEn?: Prisma.StringFieldUpdateOperationsInput | string
+  summaryAr?: Prisma.StringFieldUpdateOperationsInput | string
+  overviewEn?: Prisma.StringFieldUpdateOperationsInput | string
+  overviewAr?: Prisma.StringFieldUpdateOperationsInput | string
+  problemEn?: Prisma.StringFieldUpdateOperationsInput | string
+  problemAr?: Prisma.StringFieldUpdateOperationsInput | string
+  solutionEn?: Prisma.StringFieldUpdateOperationsInput | string
+  solutionAr?: Prisma.StringFieldUpdateOperationsInput | string
+  architectureEn?: Prisma.StringFieldUpdateOperationsInput | string
+  architectureAr?: Prisma.StringFieldUpdateOperationsInput | string
+  featuresEn?: Prisma.ProjectUpdatefeaturesEnInput | string[]
+  featuresAr?: Prisma.ProjectUpdatefeaturesArInput | string[]
   stack?: Prisma.ProjectUpdatestackInput | string[]
-  role?: Prisma.StringFieldUpdateOperationsInput | string
-  result?: Prisma.StringFieldUpdateOperationsInput | string
+  roleEn?: Prisma.StringFieldUpdateOperationsInput | string
+  roleAr?: Prisma.StringFieldUpdateOperationsInput | string
+  resultEn?: Prisma.StringFieldUpdateOperationsInput | string
+  resultAr?: Prisma.StringFieldUpdateOperationsInput | string
+  heroImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   images?: Prisma.ProjectUpdateimagesInput | string[]
+  videoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -456,17 +617,28 @@ export type ProjectUpdateInput = {
 export type ProjectUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  summary?: Prisma.StringFieldUpdateOperationsInput | string
-  overview?: Prisma.StringFieldUpdateOperationsInput | string
-  problem?: Prisma.StringFieldUpdateOperationsInput | string
-  solution?: Prisma.StringFieldUpdateOperationsInput | string
-  architecture?: Prisma.StringFieldUpdateOperationsInput | string
-  features?: Prisma.ProjectUpdatefeaturesInput | string[]
+  titleEn?: Prisma.StringFieldUpdateOperationsInput | string
+  titleAr?: Prisma.StringFieldUpdateOperationsInput | string
+  summaryEn?: Prisma.StringFieldUpdateOperationsInput | string
+  summaryAr?: Prisma.StringFieldUpdateOperationsInput | string
+  overviewEn?: Prisma.StringFieldUpdateOperationsInput | string
+  overviewAr?: Prisma.StringFieldUpdateOperationsInput | string
+  problemEn?: Prisma.StringFieldUpdateOperationsInput | string
+  problemAr?: Prisma.StringFieldUpdateOperationsInput | string
+  solutionEn?: Prisma.StringFieldUpdateOperationsInput | string
+  solutionAr?: Prisma.StringFieldUpdateOperationsInput | string
+  architectureEn?: Prisma.StringFieldUpdateOperationsInput | string
+  architectureAr?: Prisma.StringFieldUpdateOperationsInput | string
+  featuresEn?: Prisma.ProjectUpdatefeaturesEnInput | string[]
+  featuresAr?: Prisma.ProjectUpdatefeaturesArInput | string[]
   stack?: Prisma.ProjectUpdatestackInput | string[]
-  role?: Prisma.StringFieldUpdateOperationsInput | string
-  result?: Prisma.StringFieldUpdateOperationsInput | string
+  roleEn?: Prisma.StringFieldUpdateOperationsInput | string
+  roleAr?: Prisma.StringFieldUpdateOperationsInput | string
+  resultEn?: Prisma.StringFieldUpdateOperationsInput | string
+  resultAr?: Prisma.StringFieldUpdateOperationsInput | string
+  heroImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   images?: Prisma.ProjectUpdateimagesInput | string[]
+  videoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -476,17 +648,28 @@ export type ProjectUncheckedUpdateInput = {
 export type ProjectCreateManyInput = {
   id?: string
   slug: string
-  title: string
-  summary: string
-  overview: string
-  problem: string
-  solution: string
-  architecture: string
-  features?: Prisma.ProjectCreatefeaturesInput | string[]
+  titleEn: string
+  titleAr: string
+  summaryEn: string
+  summaryAr: string
+  overviewEn: string
+  overviewAr: string
+  problemEn: string
+  problemAr: string
+  solutionEn: string
+  solutionAr: string
+  architectureEn: string
+  architectureAr: string
+  featuresEn?: Prisma.ProjectCreatefeaturesEnInput | string[]
+  featuresAr?: Prisma.ProjectCreatefeaturesArInput | string[]
   stack?: Prisma.ProjectCreatestackInput | string[]
-  role: string
-  result: string
+  roleEn: string
+  roleAr: string
+  resultEn: string
+  resultAr: string
+  heroImage?: string | null
   images?: Prisma.ProjectCreateimagesInput | string[]
+  videoUrl?: string | null
   featured?: boolean
   order?: number
   createdAt?: Date | string
@@ -496,17 +679,28 @@ export type ProjectCreateManyInput = {
 export type ProjectUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  summary?: Prisma.StringFieldUpdateOperationsInput | string
-  overview?: Prisma.StringFieldUpdateOperationsInput | string
-  problem?: Prisma.StringFieldUpdateOperationsInput | string
-  solution?: Prisma.StringFieldUpdateOperationsInput | string
-  architecture?: Prisma.StringFieldUpdateOperationsInput | string
-  features?: Prisma.ProjectUpdatefeaturesInput | string[]
+  titleEn?: Prisma.StringFieldUpdateOperationsInput | string
+  titleAr?: Prisma.StringFieldUpdateOperationsInput | string
+  summaryEn?: Prisma.StringFieldUpdateOperationsInput | string
+  summaryAr?: Prisma.StringFieldUpdateOperationsInput | string
+  overviewEn?: Prisma.StringFieldUpdateOperationsInput | string
+  overviewAr?: Prisma.StringFieldUpdateOperationsInput | string
+  problemEn?: Prisma.StringFieldUpdateOperationsInput | string
+  problemAr?: Prisma.StringFieldUpdateOperationsInput | string
+  solutionEn?: Prisma.StringFieldUpdateOperationsInput | string
+  solutionAr?: Prisma.StringFieldUpdateOperationsInput | string
+  architectureEn?: Prisma.StringFieldUpdateOperationsInput | string
+  architectureAr?: Prisma.StringFieldUpdateOperationsInput | string
+  featuresEn?: Prisma.ProjectUpdatefeaturesEnInput | string[]
+  featuresAr?: Prisma.ProjectUpdatefeaturesArInput | string[]
   stack?: Prisma.ProjectUpdatestackInput | string[]
-  role?: Prisma.StringFieldUpdateOperationsInput | string
-  result?: Prisma.StringFieldUpdateOperationsInput | string
+  roleEn?: Prisma.StringFieldUpdateOperationsInput | string
+  roleAr?: Prisma.StringFieldUpdateOperationsInput | string
+  resultEn?: Prisma.StringFieldUpdateOperationsInput | string
+  resultAr?: Prisma.StringFieldUpdateOperationsInput | string
+  heroImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   images?: Prisma.ProjectUpdateimagesInput | string[]
+  videoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -516,17 +710,28 @@ export type ProjectUpdateManyMutationInput = {
 export type ProjectUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  title?: Prisma.StringFieldUpdateOperationsInput | string
-  summary?: Prisma.StringFieldUpdateOperationsInput | string
-  overview?: Prisma.StringFieldUpdateOperationsInput | string
-  problem?: Prisma.StringFieldUpdateOperationsInput | string
-  solution?: Prisma.StringFieldUpdateOperationsInput | string
-  architecture?: Prisma.StringFieldUpdateOperationsInput | string
-  features?: Prisma.ProjectUpdatefeaturesInput | string[]
+  titleEn?: Prisma.StringFieldUpdateOperationsInput | string
+  titleAr?: Prisma.StringFieldUpdateOperationsInput | string
+  summaryEn?: Prisma.StringFieldUpdateOperationsInput | string
+  summaryAr?: Prisma.StringFieldUpdateOperationsInput | string
+  overviewEn?: Prisma.StringFieldUpdateOperationsInput | string
+  overviewAr?: Prisma.StringFieldUpdateOperationsInput | string
+  problemEn?: Prisma.StringFieldUpdateOperationsInput | string
+  problemAr?: Prisma.StringFieldUpdateOperationsInput | string
+  solutionEn?: Prisma.StringFieldUpdateOperationsInput | string
+  solutionAr?: Prisma.StringFieldUpdateOperationsInput | string
+  architectureEn?: Prisma.StringFieldUpdateOperationsInput | string
+  architectureAr?: Prisma.StringFieldUpdateOperationsInput | string
+  featuresEn?: Prisma.ProjectUpdatefeaturesEnInput | string[]
+  featuresAr?: Prisma.ProjectUpdatefeaturesArInput | string[]
   stack?: Prisma.ProjectUpdatestackInput | string[]
-  role?: Prisma.StringFieldUpdateOperationsInput | string
-  result?: Prisma.StringFieldUpdateOperationsInput | string
+  roleEn?: Prisma.StringFieldUpdateOperationsInput | string
+  roleAr?: Prisma.StringFieldUpdateOperationsInput | string
+  resultEn?: Prisma.StringFieldUpdateOperationsInput | string
+  resultAr?: Prisma.StringFieldUpdateOperationsInput | string
+  heroImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   images?: Prisma.ProjectUpdateimagesInput | string[]
+  videoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   order?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -544,17 +749,28 @@ export type StringNullableListFilter<$PrismaModel = never> = {
 export type ProjectCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   slug?: Prisma.SortOrder
-  title?: Prisma.SortOrder
-  summary?: Prisma.SortOrder
-  overview?: Prisma.SortOrder
-  problem?: Prisma.SortOrder
-  solution?: Prisma.SortOrder
-  architecture?: Prisma.SortOrder
-  features?: Prisma.SortOrder
+  titleEn?: Prisma.SortOrder
+  titleAr?: Prisma.SortOrder
+  summaryEn?: Prisma.SortOrder
+  summaryAr?: Prisma.SortOrder
+  overviewEn?: Prisma.SortOrder
+  overviewAr?: Prisma.SortOrder
+  problemEn?: Prisma.SortOrder
+  problemAr?: Prisma.SortOrder
+  solutionEn?: Prisma.SortOrder
+  solutionAr?: Prisma.SortOrder
+  architectureEn?: Prisma.SortOrder
+  architectureAr?: Prisma.SortOrder
+  featuresEn?: Prisma.SortOrder
+  featuresAr?: Prisma.SortOrder
   stack?: Prisma.SortOrder
-  role?: Prisma.SortOrder
-  result?: Prisma.SortOrder
+  roleEn?: Prisma.SortOrder
+  roleAr?: Prisma.SortOrder
+  resultEn?: Prisma.SortOrder
+  resultAr?: Prisma.SortOrder
+  heroImage?: Prisma.SortOrder
   images?: Prisma.SortOrder
+  videoUrl?: Prisma.SortOrder
   featured?: Prisma.SortOrder
   order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -568,14 +784,24 @@ export type ProjectAvgOrderByAggregateInput = {
 export type ProjectMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   slug?: Prisma.SortOrder
-  title?: Prisma.SortOrder
-  summary?: Prisma.SortOrder
-  overview?: Prisma.SortOrder
-  problem?: Prisma.SortOrder
-  solution?: Prisma.SortOrder
-  architecture?: Prisma.SortOrder
-  role?: Prisma.SortOrder
-  result?: Prisma.SortOrder
+  titleEn?: Prisma.SortOrder
+  titleAr?: Prisma.SortOrder
+  summaryEn?: Prisma.SortOrder
+  summaryAr?: Prisma.SortOrder
+  overviewEn?: Prisma.SortOrder
+  overviewAr?: Prisma.SortOrder
+  problemEn?: Prisma.SortOrder
+  problemAr?: Prisma.SortOrder
+  solutionEn?: Prisma.SortOrder
+  solutionAr?: Prisma.SortOrder
+  architectureEn?: Prisma.SortOrder
+  architectureAr?: Prisma.SortOrder
+  roleEn?: Prisma.SortOrder
+  roleAr?: Prisma.SortOrder
+  resultEn?: Prisma.SortOrder
+  resultAr?: Prisma.SortOrder
+  heroImage?: Prisma.SortOrder
+  videoUrl?: Prisma.SortOrder
   featured?: Prisma.SortOrder
   order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -585,14 +811,24 @@ export type ProjectMaxOrderByAggregateInput = {
 export type ProjectMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   slug?: Prisma.SortOrder
-  title?: Prisma.SortOrder
-  summary?: Prisma.SortOrder
-  overview?: Prisma.SortOrder
-  problem?: Prisma.SortOrder
-  solution?: Prisma.SortOrder
-  architecture?: Prisma.SortOrder
-  role?: Prisma.SortOrder
-  result?: Prisma.SortOrder
+  titleEn?: Prisma.SortOrder
+  titleAr?: Prisma.SortOrder
+  summaryEn?: Prisma.SortOrder
+  summaryAr?: Prisma.SortOrder
+  overviewEn?: Prisma.SortOrder
+  overviewAr?: Prisma.SortOrder
+  problemEn?: Prisma.SortOrder
+  problemAr?: Prisma.SortOrder
+  solutionEn?: Prisma.SortOrder
+  solutionAr?: Prisma.SortOrder
+  architectureEn?: Prisma.SortOrder
+  architectureAr?: Prisma.SortOrder
+  roleEn?: Prisma.SortOrder
+  roleAr?: Prisma.SortOrder
+  resultEn?: Prisma.SortOrder
+  resultAr?: Prisma.SortOrder
+  heroImage?: Prisma.SortOrder
+  videoUrl?: Prisma.SortOrder
   featured?: Prisma.SortOrder
   order?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -603,7 +839,11 @@ export type ProjectSumOrderByAggregateInput = {
   order?: Prisma.SortOrder
 }
 
-export type ProjectCreatefeaturesInput = {
+export type ProjectCreatefeaturesEnInput = {
+  set: string[]
+}
+
+export type ProjectCreatefeaturesArInput = {
   set: string[]
 }
 
@@ -619,7 +859,12 @@ export type StringFieldUpdateOperationsInput = {
   set?: string
 }
 
-export type ProjectUpdatefeaturesInput = {
+export type ProjectUpdatefeaturesEnInput = {
+  set?: string[]
+  push?: string | string[]
+}
+
+export type ProjectUpdatefeaturesArInput = {
   set?: string[]
   push?: string | string[]
 }
@@ -627,6 +872,10 @@ export type ProjectUpdatefeaturesInput = {
 export type ProjectUpdatestackInput = {
   set?: string[]
   push?: string | string[]
+}
+
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
 }
 
 export type ProjectUpdateimagesInput = {
@@ -655,17 +904,28 @@ export type DateTimeFieldUpdateOperationsInput = {
 export type ProjectSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   slug?: boolean
-  title?: boolean
-  summary?: boolean
-  overview?: boolean
-  problem?: boolean
-  solution?: boolean
-  architecture?: boolean
-  features?: boolean
+  titleEn?: boolean
+  titleAr?: boolean
+  summaryEn?: boolean
+  summaryAr?: boolean
+  overviewEn?: boolean
+  overviewAr?: boolean
+  problemEn?: boolean
+  problemAr?: boolean
+  solutionEn?: boolean
+  solutionAr?: boolean
+  architectureEn?: boolean
+  architectureAr?: boolean
+  featuresEn?: boolean
+  featuresAr?: boolean
   stack?: boolean
-  role?: boolean
-  result?: boolean
+  roleEn?: boolean
+  roleAr?: boolean
+  resultEn?: boolean
+  resultAr?: boolean
+  heroImage?: boolean
   images?: boolean
+  videoUrl?: boolean
   featured?: boolean
   order?: boolean
   createdAt?: boolean
@@ -675,17 +935,28 @@ export type ProjectSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
 export type ProjectSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   slug?: boolean
-  title?: boolean
-  summary?: boolean
-  overview?: boolean
-  problem?: boolean
-  solution?: boolean
-  architecture?: boolean
-  features?: boolean
+  titleEn?: boolean
+  titleAr?: boolean
+  summaryEn?: boolean
+  summaryAr?: boolean
+  overviewEn?: boolean
+  overviewAr?: boolean
+  problemEn?: boolean
+  problemAr?: boolean
+  solutionEn?: boolean
+  solutionAr?: boolean
+  architectureEn?: boolean
+  architectureAr?: boolean
+  featuresEn?: boolean
+  featuresAr?: boolean
   stack?: boolean
-  role?: boolean
-  result?: boolean
+  roleEn?: boolean
+  roleAr?: boolean
+  resultEn?: boolean
+  resultAr?: boolean
+  heroImage?: boolean
   images?: boolean
+  videoUrl?: boolean
   featured?: boolean
   order?: boolean
   createdAt?: boolean
@@ -695,17 +966,28 @@ export type ProjectSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
 export type ProjectSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   slug?: boolean
-  title?: boolean
-  summary?: boolean
-  overview?: boolean
-  problem?: boolean
-  solution?: boolean
-  architecture?: boolean
-  features?: boolean
+  titleEn?: boolean
+  titleAr?: boolean
+  summaryEn?: boolean
+  summaryAr?: boolean
+  overviewEn?: boolean
+  overviewAr?: boolean
+  problemEn?: boolean
+  problemAr?: boolean
+  solutionEn?: boolean
+  solutionAr?: boolean
+  architectureEn?: boolean
+  architectureAr?: boolean
+  featuresEn?: boolean
+  featuresAr?: boolean
   stack?: boolean
-  role?: boolean
-  result?: boolean
+  roleEn?: boolean
+  roleAr?: boolean
+  resultEn?: boolean
+  resultAr?: boolean
+  heroImage?: boolean
   images?: boolean
+  videoUrl?: boolean
   featured?: boolean
   order?: boolean
   createdAt?: boolean
@@ -715,24 +997,35 @@ export type ProjectSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
 export type ProjectSelectScalar = {
   id?: boolean
   slug?: boolean
-  title?: boolean
-  summary?: boolean
-  overview?: boolean
-  problem?: boolean
-  solution?: boolean
-  architecture?: boolean
-  features?: boolean
+  titleEn?: boolean
+  titleAr?: boolean
+  summaryEn?: boolean
+  summaryAr?: boolean
+  overviewEn?: boolean
+  overviewAr?: boolean
+  problemEn?: boolean
+  problemAr?: boolean
+  solutionEn?: boolean
+  solutionAr?: boolean
+  architectureEn?: boolean
+  architectureAr?: boolean
+  featuresEn?: boolean
+  featuresAr?: boolean
   stack?: boolean
-  role?: boolean
-  result?: boolean
+  roleEn?: boolean
+  roleAr?: boolean
+  resultEn?: boolean
+  resultAr?: boolean
+  heroImage?: boolean
   images?: boolean
+  videoUrl?: boolean
   featured?: boolean
   order?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "title" | "summary" | "overview" | "problem" | "solution" | "architecture" | "features" | "stack" | "role" | "result" | "images" | "featured" | "order" | "createdAt" | "updatedAt", ExtArgs["result"]["project"]>
+export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "titleEn" | "titleAr" | "summaryEn" | "summaryAr" | "overviewEn" | "overviewAr" | "problemEn" | "problemAr" | "solutionEn" | "solutionAr" | "architectureEn" | "architectureAr" | "featuresEn" | "featuresAr" | "stack" | "roleEn" | "roleAr" | "resultEn" | "resultAr" | "heroImage" | "images" | "videoUrl" | "featured" | "order" | "createdAt" | "updatedAt", ExtArgs["result"]["project"]>
 
 export type $ProjectPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Project"
@@ -740,17 +1033,28 @@ export type $ProjectPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     slug: string
-    title: string
-    summary: string
-    overview: string
-    problem: string
-    solution: string
-    architecture: string
-    features: string[]
+    titleEn: string
+    titleAr: string
+    summaryEn: string
+    summaryAr: string
+    overviewEn: string
+    overviewAr: string
+    problemEn: string
+    problemAr: string
+    solutionEn: string
+    solutionAr: string
+    architectureEn: string
+    architectureAr: string
+    featuresEn: string[]
+    featuresAr: string[]
     stack: string[]
-    role: string
-    result: string
+    roleEn: string
+    roleAr: string
+    resultEn: string
+    resultAr: string
+    heroImage: string | null
     images: string[]
+    videoUrl: string | null
     featured: boolean
     order: number
     createdAt: Date
@@ -1180,17 +1484,28 @@ export interface Prisma__ProjectClient<T, Null = never, ExtArgs extends runtime.
 export interface ProjectFieldRefs {
   readonly id: Prisma.FieldRef<"Project", 'String'>
   readonly slug: Prisma.FieldRef<"Project", 'String'>
-  readonly title: Prisma.FieldRef<"Project", 'String'>
-  readonly summary: Prisma.FieldRef<"Project", 'String'>
-  readonly overview: Prisma.FieldRef<"Project", 'String'>
-  readonly problem: Prisma.FieldRef<"Project", 'String'>
-  readonly solution: Prisma.FieldRef<"Project", 'String'>
-  readonly architecture: Prisma.FieldRef<"Project", 'String'>
-  readonly features: Prisma.FieldRef<"Project", 'String[]'>
+  readonly titleEn: Prisma.FieldRef<"Project", 'String'>
+  readonly titleAr: Prisma.FieldRef<"Project", 'String'>
+  readonly summaryEn: Prisma.FieldRef<"Project", 'String'>
+  readonly summaryAr: Prisma.FieldRef<"Project", 'String'>
+  readonly overviewEn: Prisma.FieldRef<"Project", 'String'>
+  readonly overviewAr: Prisma.FieldRef<"Project", 'String'>
+  readonly problemEn: Prisma.FieldRef<"Project", 'String'>
+  readonly problemAr: Prisma.FieldRef<"Project", 'String'>
+  readonly solutionEn: Prisma.FieldRef<"Project", 'String'>
+  readonly solutionAr: Prisma.FieldRef<"Project", 'String'>
+  readonly architectureEn: Prisma.FieldRef<"Project", 'String'>
+  readonly architectureAr: Prisma.FieldRef<"Project", 'String'>
+  readonly featuresEn: Prisma.FieldRef<"Project", 'String[]'>
+  readonly featuresAr: Prisma.FieldRef<"Project", 'String[]'>
   readonly stack: Prisma.FieldRef<"Project", 'String[]'>
-  readonly role: Prisma.FieldRef<"Project", 'String'>
-  readonly result: Prisma.FieldRef<"Project", 'String'>
+  readonly roleEn: Prisma.FieldRef<"Project", 'String'>
+  readonly roleAr: Prisma.FieldRef<"Project", 'String'>
+  readonly resultEn: Prisma.FieldRef<"Project", 'String'>
+  readonly resultAr: Prisma.FieldRef<"Project", 'String'>
+  readonly heroImage: Prisma.FieldRef<"Project", 'String'>
   readonly images: Prisma.FieldRef<"Project", 'String[]'>
+  readonly videoUrl: Prisma.FieldRef<"Project", 'String'>
   readonly featured: Prisma.FieldRef<"Project", 'Boolean'>
   readonly order: Prisma.FieldRef<"Project", 'Int'>
   readonly createdAt: Prisma.FieldRef<"Project", 'DateTime'>

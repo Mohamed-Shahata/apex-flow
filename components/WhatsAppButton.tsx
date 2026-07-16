@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const WHATSAPP_URL = "https://wa.me/000000000000";
+const WHATSAPP_URL = "https://wa.me/201152432513";
 
 export default function WhatsAppButton() {
   const [visible, setVisible] = useState(false);

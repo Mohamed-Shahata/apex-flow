@@ -76,3 +76,8 @@ export type ContactMessage = Prisma.ContactMessageModel
  * 
  */
 export type PageVisit = Prisma.PageVisitModel
+/**
+ * Model Booking
+ * 
+ */
+export type Booking = Prisma.BookingModel

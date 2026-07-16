@@ -4,6 +4,7 @@ import { PrismaPg } from "@prisma/adapter-pg";
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
 const prisma = new PrismaClient({ adapter });
+
 const projects = [
   {
     slug: "clinic-management-system",
@@ -94,6 +95,27 @@ const projects = [
   },
 ];
 
+const posts = [
+  {
+    slug: "why-multi-tenant-auth-is-hard",
+    title: "Why Multi-Tenant Auth Is Harder Than It Looks",
+    excerpt:
+      "Tenant scoping isn't just a WHERE clause — notes from building the clinic platform.",
+    content:
+      "Placeholder post body for local testing. Replace with real content before publishing.",
+    published: true,
+  },
+  {
+    slug: "queue-driven-scanning-with-bullmq",
+    title: "Queue-Driven Scanning With BullMQ",
+    excerpt:
+      "Splitting scan execution from the API so long jobs don't block requests.",
+    content:
+      "Placeholder post body for local testing. Replace with real content before publishing.",
+    published: false,
+  },
+];
+
 const testimonials = [
   {
     quote: "Add a real client or collaborator quote here.",
@@ -171,10 +193,49 @@ const faqs = [
   },
 ];
 
+const contactMessages = [
+  {
+    name: "Ahmed Test",
+    email: "ahmed@example.com",
+    message: "مهتم بمشروع SaaS، ممكن نتكلم؟",
+    read: false,
+  },
+  {
+    name: "Sara Ali",
+    email: "sara@example.com",
+    message: "عايزة عرض سعر لتطبيق حجوزات.",
+    read: true,
+  },
+];
+
+const bookings = [
+  {
+    name: "Omar Test",
+    email: "omar@example.com",
+    date: "2026-07-20",
+    time: "14:00",
+    notes: "مناقشة مشروع لوحة تحكم",
+  },
+  {
+    name: "Nour Test",
+    email: "nour@example.com",
+    date: "2026-07-22",
+    time: "10:30",
+    notes: null,
+  },
+];
+
+const pageVisitPaths = [
+  "/",
+  "/",
+  "/",
+  "/projects/clinic-management-system",
+  "/blog",
+  "/#contact",
+];
+
 async function main() {
   console.log("Seed started");
-
-  console.log("Projects before:", await prisma.project.count());
 
   for (const project of projects) {
     await prisma.project.upsert({
@@ -183,20 +244,48 @@ async function main() {
       create: project,
     });
   }
+  console.log("Projects:", await prisma.project.count());
 
-  console.log("Projects after:", await prisma.project.count());
-
-  console.log("Testimonials before:", await prisma.testimonial.count());
+  for (const post of posts) {
+    await prisma.post.upsert({
+      where: { slug: post.slug },
+      update: post,
+      create: post,
+    });
+  }
+  console.log("Posts:", await prisma.post.count());
 
   if ((await prisma.testimonial.count()) === 0) {
-    console.log("Creating testimonials...");
     await prisma.testimonial.createMany({ data: testimonials });
   }
+  console.log("Testimonials:", await prisma.testimonial.count());
 
-  console.log("Testimonials after:", await prisma.testimonial.count());
-
+  if ((await prisma.service.count()) === 0) {
+    await prisma.service.createMany({ data: services });
+  }
   console.log("Services:", await prisma.service.count());
+
+  if ((await prisma.faq.count()) === 0) {
+    await prisma.faq.createMany({ data: faqs });
+  }
   console.log("FAQs:", await prisma.faq.count());
+
+  if ((await prisma.contactMessage.count()) === 0) {
+    await prisma.contactMessage.createMany({ data: contactMessages });
+  }
+  console.log("Contact messages:", await prisma.contactMessage.count());
+
+  if ((await prisma.booking.count()) === 0) {
+    await prisma.booking.createMany({ data: bookings });
+  }
+  console.log("Bookings:", await prisma.booking.count());
+
+  if ((await prisma.pageVisit.count()) === 0) {
+    await prisma.pageVisit.createMany({
+      data: pageVisitPaths.map((path) => ({ path })),
+    });
+  }
+  console.log("Page visits:", await prisma.pageVisit.count());
 
   console.log("Seed finished");
 }

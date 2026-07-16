@@ -13,23 +13,34 @@ datasource db {
 }
 
 model Project {
-  id           String   @id @default(cuid())
-  slug         String   @unique
-  title        String
-  summary      String
-  overview     String
-  problem      String
-  solution     String
-  architecture String
-  features     String[]
-  stack        String[]
-  role         String
-  result       String
-  images       String[] @default([])
-  featured     Boolean  @default(true)
-  order        Int      @default(0)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id             String   @id @default(cuid())
+  slug           String   @unique
+  titleEn        String
+  titleAr        String
+  summaryEn      String
+  summaryAr      String
+  overviewEn     String
+  overviewAr     String
+  problemEn      String
+  problemAr      String
+  solutionEn     String
+  solutionAr     String
+  architectureEn String
+  architectureAr String
+  featuresEn     String[]
+  featuresAr     String[]
+  stack          String[]
+  roleEn         String
+  roleAr         String
+  resultEn       String
+  resultAr       String
+  heroImage      String?
+  images         String[] @default([])
+  videoUrl       String?
+  featured       Boolean  @default(true)
+  order          Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
 
 model Post {
@@ -88,4 +99,14 @@ model PageVisit {
   createdAt DateTime @default(now())
 
   @@index([createdAt])
+}
+
+model Booking {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  date      String
+  time      String
+  notes     String?
+  createdAt DateTime @default(now())
 }
