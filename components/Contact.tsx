@@ -57,7 +57,27 @@ export default function Contact() {
           <div className="flex gap-4 flex-wrap">
             <BookingWidget />
           </div>
-          <ContactForm />
+          <div className="flex items-stretch gap-5">
+            <div className="w-1/2">
+              <ContactForm />
+            </div>
+
+            <div className="w-1/2 rounded-2xl p-8 flex flex-col justify-center">
+              <span className="text-sm uppercase tracking-[0.25em] text-primary">
+                Let&apos;s Connect
+              </span>
+
+              <h3 className="mt-4 text-3xl font-bold">
+                Let&apos;s build something amazing together.
+              </h3>
+
+              <p className="mt-4 text-muted-foreground leading-7">
+                Have a project, an idea, or just want to say hello? I&apos;d
+                love to hear from you. Fill out the form or schedule a call, and
+                I&apos;ll get back to you as soon as possible.
+              </p>
+            </div>
+          </div>
         </Reveal>
       </div>
     </section>

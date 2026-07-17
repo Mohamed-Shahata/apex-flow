@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { getProjectBySlug } from "@/lib/actions/projects";
 import { localizeProject } from "@/lib/localize-project";
 import { getLocale } from "next-intl/server";
+import type { Locale } from "@/i18n/request";
 import Reveal, { RevealGroup, RevealItem } from "@/components/Reveal";
 
 export const dynamic = "force-dynamic";
@@ -16,7 +17,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const raw = await getProjectBySlug(slug);
   if (!raw) return {};
-  const locale = await getLocale();
+  const locale = (await getLocale()) as Locale;
   const study = localizeProject(raw, locale);
 
   return {
@@ -41,7 +42,7 @@ export default async function CaseStudyPage({
 
   if (!raw) notFound();
 
-  const locale = await getLocale();
+  const locale = (await getLocale()) as Locale;
   const study = localizeProject(raw, locale);
 
   const jsonLd = {
@@ -123,9 +124,9 @@ export default async function CaseStudyPage({
             <p className="case-summary">{study.summary}</p>
           </Reveal>
           <RevealGroup className="project-tags" stagger={0.05}>
-            {study.stack.map((t) => (
-              <RevealItem as="div" key={t} className="project-tag-pill">
-                {t}
+            {study.stack.map((tech) => (
+              <RevealItem as="div" key={tech} className="project-tag-pill">
+                {tech}
               </RevealItem>
             ))}
           </RevealGroup>
@@ -143,7 +144,6 @@ export default async function CaseStudyPage({
         {study.videoUrl && (
           <Reveal className="case-block case-video-block">
             <h2>{t.demo}</h2>
-            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
             <video
               src={study.videoUrl}
               controls

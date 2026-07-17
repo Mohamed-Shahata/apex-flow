@@ -1,8 +1,8 @@
-import type { Project } from "@/app/generated/prisma/models/Project";
+import type { ProjectModel } from "@/app/generated/prisma/models/Project";
 import type { Locale } from "@/i18n/request";
 
 /** Returns a locale-aware view of a Project's translatable fields. */
-export function localizeProject(project: Project, locale: Locale) {
+export function localizeProject(project: ProjectModel, locale: Locale) {
   const ar = locale === "ar";
   return {
     ...project,
