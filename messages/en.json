@@ -11,5 +11,147 @@
     "downloadCv": "Download CV",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
+  },
+  "Hero": {
+    "eyebrow": "Full-Stack · Backend-Focused",
+    "title": "Apex Flow",
+    "subtitle": "Engineering digital momentum.",
+    "description": "We design and ship production-ready SaaS platforms, dashboards, and APIs — not prototypes. From database schema to deployed system, one team owns the whole flow.",
+    "viewProjects": "View Projects",
+    "startProject": "Start a Project"
+  },
+  "ClientLogos": {
+    "eyebrow": "Trusted by teams building real products"
+  },
+  "About": {
+    "eyebrow": "Why Apex Flow",
+    "title": "Not just \"who we are\" — why teams choose to build with us.",
+    "reasons": [
+      { "title": "Full ownership", "text": "One team handles schema, API, and UI — no handoffs, no gaps between backend logic and what ships." },
+      { "title": "Backend-first mindset", "text": "Systems are designed to hold real data and real traffic, not just to demo well." },
+      { "title": "Direct communication", "text": "You talk to the person writing the code. Updates are frequent and specific, not vague status pings." },
+      { "title": "Process, not guesswork", "text": "Discovery, planning, and testing happen before a single deploy — so scope stays predictable." }
+    ],
+    "stats": {
+      "uptime": "Uptime SLA",
+      "projects": "Projects Shipped",
+      "clients": "Happy Clients",
+      "requests": "API Requests",
+      "years": "Years Exp"
+    }
+  },
+  "Services": {
+    "eyebrow": "What We Build",
+    "title": "Services scoped around real product needs, not a generic package."
+  },
+  "TechStack": {
+    "eyebrow": "Tech Stack",
+    "title": "The tools behind every build.",
+    "groups": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "cloud": "Cloud",
+      "devops": "DevOps",
+      "tools": "Tools"
+    }
+  },
+  "Process": {
+    "eyebrow": "How We Work",
+    "title": "A real sequence, not a slide — each step gates the next.",
+    "steps": [
+      { "title": "Discovery", "text": "Understand the business goal, users, and constraints before writing scope." },
+      { "title": "Planning", "text": "Break the goal into a scoped roadmap: data model, API surface, milestones." },
+      { "title": "UI", "text": "Design screens around the real content and flows, not generic templates." },
+      { "title": "Development", "text": "Build backend and frontend in parallel, with the schema as the source of truth." },
+      { "title": "Testing", "text": "Verify edge cases, load behavior, and auth boundaries before deploy." },
+      { "title": "Deployment", "text": "Ship to production with monitoring and rollback in place from day one." },
+      { "title": "Support", "text": "Stay available post-launch for fixes, iteration, and scaling needs." }
+    ]
+  },
+  "FeaturedProjects": {
+    "eyebrow": "Featured Work",
+    "title": "Systems built to run in production, not just to demo.",
+    "filterAll": "All",
+    "emptyState": "No projects match this filter."
+  },
+  "Testimonials": {
+    "eyebrow": "What People Say",
+    "title": "Feedback from people who've worked with the code directly."
+  },
+  "WhyUs": {
+    "eyebrow": "Why Us",
+    "title": "Eight things every project ships with, by default.",
+    "points": [
+      { "title": "Fast", "text": "Optimized builds and lean queries, not bloated defaults." },
+      { "title": "Reliable", "text": "Systems designed to hold up under real, sustained usage." },
+      { "title": "Clean Code", "text": "Readable, typed, and structured for someone else to maintain later." },
+      { "title": "Scalable", "text": "Multi-tenant and modular by default, not bolted on after launch." },
+      { "title": "SEO", "text": "Metadata, semantic markup, and performance handled from the start." },
+      { "title": "Responsive", "text": "Every screen works from mobile up, not just desktop-first." },
+      { "title": "Security", "text": "Auth, RBAC, and session handling treated as core, not an afterthought." },
+      { "title": "Maintenance", "text": "Documented and structured so future changes don't require a rewrite." }
+    ]
+  },
+  "FAQ": {
+    "eyebrow": "FAQ",
+    "title": "Questions clients actually ask."
+  },
+  "Contact": {
+    "eyebrow": "Get In Touch",
+    "title": "Have a project in mind? Let's talk about it.",
+    "channels": {
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "whatsappValue": "Chat on WhatsApp",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "calendly": "Calendly",
+      "calendlyValue": "Book a call"
+    },
+    "sideEyebrow": "Let's Connect",
+    "sideTitle": "Let's build something amazing together.",
+    "sideText": "Have a project, an idea, or just want to say hello? I'd love to hear from you. Fill out the form or schedule a call, and I'll get back to you as soon as possible."
+  },
+  "ContactForm": {
+    "successMessage": "Your message has been received. I'll get back to you soon.",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "messageLabel": "Message",
+    "submit": "Send Message",
+    "sending": "Sending..."
+  },
+  "BookingWidget": {
+    "trigger": "Book a call",
+    "formTitle": "Book a call",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "dateLabel": "Date",
+    "timeLabel": "Time",
+    "notesLabel": "Notes (optional)",
+    "cancel": "Cancel",
+    "confirm": "Confirm Booking",
+    "confirming": "Booking...",
+    "successTitle": "Booked successfully",
+    "successText": "You'll receive a confirmation email shortly.",
+    "close": "Close"
+  },
+  "Footer": {
+    "description": "Engineering Digital Momentum. Scoped full-stack SaaS, APIs, and dashboards built for production.",
+    "navigationHeading": "Navigation",
+    "connectHeading": "Connect",
+    "services": "Services",
+    "stack": "Tech Stack",
+    "process": "Process",
+    "work": "Work",
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "whatsapp": "WhatsApp",
+    "rights": "All rights reserved.",
+    "tagline": "Built for performance."
+  },
+  "WhatsAppButton": {
+    "ariaLabel": "Chat on WhatsApp"
   }
 }

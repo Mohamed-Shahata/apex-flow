@@ -1,56 +1,32 @@
-const POINTS = [
-  {
-    title: "Fast",
-    text: "Optimized builds and lean queries, not bloated defaults.",
-  },
-  {
-    title: "Reliable",
-    text: "Systems designed to hold up under real, sustained usage.",
-  },
-  {
-    title: "Clean Code",
-    text: "Readable, typed, and structured for someone else to maintain later.",
-  },
-  {
-    title: "Scalable",
-    text: "Multi-tenant and modular by default, not bolted on after launch.",
-  },
-  {
-    title: "SEO",
-    text: "Metadata, semantic markup, and performance handled from the start.",
-  },
-  {
-    title: "Responsive",
-    text: "Every screen works from mobile up, not just desktop-first.",
-  },
-  {
-    title: "Security",
-    text: "Auth, RBAC, and session handling treated as core, not an afterthought.",
-  },
-  {
-    title: "Maintenance",
-    text: "Documented and structured so future changes don't require a rewrite.",
-  },
-];
+"use client";
 
+import { useTranslations } from "next-intl";
 import Reveal, { RevealGroup, RevealItem } from "./Reveal";
 
+type WhyUsPoint = {
+  title: string;
+  text: string;
+};
+
 export default function WhyUs() {
+  const t = useTranslations("WhyUs");
+
+  const points = t.raw("points") as WhyUsPoint[];
+
   return (
     <section className="whyus" id="whyus">
       <div className="services-inner">
-        <Reveal className="about-head">
-          <span className="section-eyebrow">Why Us</span>
-          <h2 className="section-title">
-            Eight things every project ships with, by default.
-          </h2>
+        <Reveal className="about-head flex flex-col items-center  text-center">
+          <span className="section-eyebrow">{t("eyebrow")}</span>
+
+          <h2 className="section-title">{t("title")}</h2>
         </Reveal>
 
         <RevealGroup className="whyus-grid">
-          {POINTS.map((p) => (
-            <RevealItem className="whyus-card" key={p.title}>
-              <h3>{p.title}</h3>
-              <p>{p.text}</p>
+          {points.map((point) => (
+            <RevealItem className="whyus-card" key={point.title}>
+              <h3>{point.title}</h3>
+              <p>{point.text}</p>
             </RevealItem>
           ))}
         </RevealGroup>

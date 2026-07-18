@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import Reveal from "./Reveal";
 
 const CLIENTS = [
@@ -5,12 +6,13 @@ const CLIENTS = [
 ];
 
 export default function ClientLogos() {
+  const t = useTranslations("ClientLogos");
   return (
     <section className="px-6 py-14 border-y border-white/10 bg-white/[0.015]">
       <div className="max-w-6xl mx-auto flex flex-col items-center gap-8">
         <Reveal>
           <span className="text-xs font-semibold uppercase tracking-widest text-[#8b96a8]">
-            Trusted by teams building real products
+            {t("eyebrow")}
           </span>
         </Reveal>
 

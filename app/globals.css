@@ -27,6 +27,10 @@ body {
   position: relative;
 }
 
+button{
+  cursor: pointer;
+}
+
 /* ---------- Ambient background ---------- */
 
 body::before {

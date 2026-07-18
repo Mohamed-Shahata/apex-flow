@@ -16,7 +16,7 @@ export default function BookingWidget() {
     <>
       <button
         type="button"
-        className="btn btn-primary contact-cv"
+        className="btn btn-primary contact-cv mx-auto"
         onClick={() => setOpen(true)}
       >
         Book a call
@@ -124,6 +124,7 @@ export default function BookingWidget() {
                   >
                     {pending ? "جاري الحجز..." : "تأكيد الحجز"}
                   </button>
+
                 </div>
               </form>
             )}

@@ -7,13 +7,13 @@ import LanguageSwitcher from "./LanguageSwitcher";
 export default function Navbar() {
   const t = useTranslations("Nav");
   const NAV_LINKS = [
-    { href: "#about", label: t("about") },
-    { href: "#services", label: t("services") },
-    { href: "#stack", label: t("stack") },
-    { href: "#process", label: t("process") },
-    { href: "#projects", label: t("work") },
+    { href: "/#about", label: t("about") },
+    { href: "/#services", label: t("services") },
+    { href: "/#stack", label: t("stack") },
+    { href: "/#process", label: t("process") },
+    { href: "/#projects", label: t("work") },
     { href: "/blog", label: t("blog") },
-    { href: "#contact", label: t("contact") },
+    { href: "/#contact", label: t("contact") },
   ];
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -42,7 +42,7 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between gap-6 px-6">
         <a
-          href="#main"
+          href="/#main"
           className="text-lg font-bold bg-linear-to-r from-[#3b82f6] to-[#06b6d4] bg-clip-text text-transparent shrink-0"
         >
           Apex Flow
@@ -62,7 +62,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-3 shrink-0">
           <a
-            href="#contact"
+            href="/#contact"
             className="text-sm font-semibold text-[#ededed] px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 hover:-translate-y-0.5 transition-all whitespace-nowrap"
           >
             {t("startProject")}
@@ -94,7 +94,7 @@ export default function Navbar() {
       >
         <nav
           aria-label="Mobile"
-          className="min-h-0 flex flex-col gap-5 px-6 pt-6 pb-6"
+          className="min-h-0 flex flex-col gap-5 px-6 pt-6"
         >
           {NAV_LINKS.map((link) => (
             <a
@@ -107,7 +107,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/#contact"
             onClick={() => setOpen(false)}
             className="inline-block self-start mt-2 text-sm font-semibold text-[#ededed] px-4 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10"
           >

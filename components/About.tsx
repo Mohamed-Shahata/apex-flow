@@ -1,5 +1,6 @@
 import CountUp from "@/components/CountUp";
 import Reveal, { RevealGroup, RevealItem } from "./Reveal";
+import { useTranslations } from "next-intl";
 
 const REASONS = [
   {
@@ -21,22 +22,26 @@ const REASONS = [
 ];
 
 export default function About() {
+  const t = useTranslations("About");
+
+  const reasons = t.raw("reasons") as {
+    title: string;
+    text: string;
+  }[];
+
   return (
     <section className="about" id="about">
       <div className="about-inner">
-        <Reveal className="about-head">
-          <span className="section-eyebrow">Why Apex Flow</span>
-          <h2 className="section-title">
-            Not just &ldquo;who we are&rdquo; &mdash; why teams choose to build
-            with us.
-          </h2>
+        <Reveal className="about-head flex flex-col items-center  text-center">
+          <span className="section-eyebrow">{t("eyebrow")}</span>
+          <h2 className="section-title">{t("title")}</h2>
         </Reveal>
 
         <RevealGroup className="about-grid">
-          {REASONS.map((r) => (
-            <RevealItem className="about-card" key={r.title}>
-              <h3>{r.title}</h3>
-              <p>{r.text}</p>
+          {reasons.map((reason) => (
+            <RevealItem className="about-card" key={reason.title}>
+              <h3>{reason.title}</h3>
+              <p>{reason.text}</p>
             </RevealItem>
           ))}
         </RevealGroup>
@@ -47,7 +52,7 @@ export default function About() {
               <CountUp to={99.9} decimals={1} suffix="%" />
             </span>
             <span className="text-xs uppercase tracking-widest text-[var(--slate)] mt-2">
-              Uptime SLA
+              {t("stats.uptime")}
             </span>
           </div>
           <div className="about-stat-card flex flex-col items-center justify-center p-4 text-center">
@@ -55,7 +60,7 @@ export default function About() {
               <CountUp to={30} suffix="+" />
             </span>
             <span className="text-xs uppercase tracking-widest text-[var(--slate)] mt-2">
-              Projects Shipped
+              {t("stats.projects")}
             </span>
           </div>
           <div className="about-stat-card flex flex-col items-center justify-center p-4 text-center">
@@ -63,7 +68,7 @@ export default function About() {
               <CountUp to={20} suffix="+" />
             </span>
             <span className="text-xs uppercase tracking-widest text-[var(--slate)] mt-2">
-              Happy Clients
+              {t("stats.clients")}
             </span>
           </div>
           <div className="about-stat-card flex flex-col items-center justify-center p-4 text-center">
@@ -71,7 +76,7 @@ export default function About() {
               <CountUp to={100} suffix="M+" />
             </span>
             <span className="text-xs uppercase tracking-widest text-[var(--slate)] mt-2">
-              API Requests
+              {t("stats.requests")}
             </span>
           </div>
           <div className="about-stat-card flex flex-col items-center justify-center p-4 text-center">
@@ -79,7 +84,7 @@ export default function About() {
               <CountUp to={8} suffix="+" />
             </span>
             <span className="text-xs uppercase tracking-widest text-[var(--slate)] mt-2">
-              Years Exp
+              {t("stats.years")}
             </span>
           </div>
         </div>

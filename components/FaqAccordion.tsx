@@ -10,7 +10,7 @@ export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
   const [open, setOpen] = useState<string | null>(faqs[0]?.id ?? null);
 
   return (
-    <RevealGroup className="faq-list">
+    <RevealGroup className="faq-list mx-auto">
       {faqs.map((item) => {
         const isOpen = open === item.id;
         const answerId = `faq-answer-${item.id}`;

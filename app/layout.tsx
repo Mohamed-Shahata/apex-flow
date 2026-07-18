@@ -75,7 +75,7 @@ export default async function RootLayout({
         <NextIntlClientProvider>
           <VisitTracker />
           <MouseGlow />
-          <a href="#main" className="skip-link">
+          <a href="/#main" className="skip-link">
             Skip to content
           </a>
 
